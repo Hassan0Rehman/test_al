@@ -1,0 +1,74 @@
+.cng-footer {
+        background: rgba(0, 0, 0, 0.04);
+        padding-bottom: 52px;
+
+        .cng-footer-inner {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            .ft-logo-and-rights-container {
+                display: inline-block;
+                a {                  
+                    text-decoration: none;
+                    background-color: transparent;
+                }
+                .rights-text {
+                    margin-top: 40px;
+                    p {
+                        margin: 0px !important;  
+                    }
+                }
+            }
+            .ft-cnt-pages {
+                a {
+                    color: #666;
+                    margin-left: 10px;
+                }
+            }
+            .ft-links {     
+                vertical-align: top;
+                display: inline-block;
+                a {
+                    font-family: "poppins-semibold";
+                    margin-top: 20px;
+                    font-size: 1.1em;
+                    display: block;
+                    margin-left: 20px;
+                    color: #333;
+                }
+            }
+            .ft-social-links {
+                vertical-align: top;
+                text-align: right;
+
+                .ft-sl-up{
+                    a {
+                        padding-left: 10px;
+                    }
+                }
+
+                .ft-app-links {
+                    margin-top: 30px;
+                    
+                    a {
+                        cursor: pointer;
+                        padding-left: 10px;
+                    }
+                }
+                .ft-cnt-pages {
+                    margin-top: 30px;
+
+                     a {
+                        color: #666;
+                        margin-left: 10px;
+                    }
+                }
+                
+                .ft-vr-logo {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }

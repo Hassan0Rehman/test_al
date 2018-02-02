@@ -1,0 +1,32 @@
+<h2 class="top-article-header no-margin-top padding-left-10" style="color:#a5c715 ;">
+    Featured Articles
+</h2>
+<% for(var i = 0; i < 3; i++) {%>
+    <div class="no-xs-padding blogs-hm-section-two">
+        <a href="/news/<%= featuredArticles[i].Id %>/<%= featuredArticles[i].u %>">
+            <div class="wrapper">
+                <div class="four-by-five xs-sixteen-by-nine"
+                    style="background:url('http://d7d7wuk1a7yus.cloudfront.net/article-images/0.86/<%= featuredArticles[i].Id %>.jpg'), url('/Images/placeholder.png');">
+                </div>
+                <div class="content" style="top:auto;">
+                    <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
+                        <div style="position:absolute;bottom:10px; width:100%;">
+                            <div class="blog-overlay-tag blog-overlay-tag-sm"><%= featuredArticles[i].h %></div>
+                            <div class="blog-overlay-title blog-overlay-title-sm" style="height:auto;"><%= featuredArticles[i].t %></div>
+                            <div class="featured-article-desc-row">
+                                <div class="author-details author-details-sm inline-block">
+                                    <img class="inline" src="https://www.cricingif.com/Images/BloggerImages/20.png" width="30" height="30">
+                                    <p class="inline">Cricingif Staff</p>
+                                </div>
+                                <div class="blog-time-and-comments blog-time-and-comments-sm pull-right inline-block">
+                                    <i class="inline fa fa-comments-o"></i>                                    
+                                    <p class="inline"><%= featuredArticles[i].v %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+<% } %>

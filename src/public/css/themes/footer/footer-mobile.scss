@@ -1,0 +1,110 @@
+.cng-footer {
+    background: rgba(0, 0, 0, 0.04);
+    font-size: 14px;
+
+    .cng-footer-outer{
+        margin-top: 20px;
+
+        .cng-footer-inner {
+            padding-left: 15px;
+            padding-right: 15px;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            .ft-logo-and-rights-container {
+                display: inline-block;
+                display: block!important;
+                text-align: center;
+                a {                  
+                    text-decoration: none;
+                    background-color: transparent;
+                }
+                .rights-text {
+                    margin-top: 40px;
+                    margin-bottom: 50px;
+                    p {
+                        margin: 0px !important; 
+                        display: inline-block; 
+                    }
+                }
+            }
+            .ft-cnt-pages {
+                a {
+                    color: #666;
+                    margin-left: 10px;
+                }
+            }
+            .ft-links {     
+                vertical-align: top;
+                display: inline-block;
+                a {
+                    font-family: "poppins-semibold";
+                    margin-top: 20px;
+                    font-size: .8em;
+                    display: block;
+                    color: #333;
+                    text-decoration: none;
+                    padding-left: 10px;
+                }
+
+               
+                
+            }
+            .ft-links a:hover {
+                text-decoration: underline;
+            }
+            .ft-social-links {
+                text-align: center;
+
+                .ft-sl-up {
+                    position: absolute;
+                    right: 15px;
+                    margin-top: -124px;
+                    a{
+                        padding-left: 10px;
+                    }
+                }
+                
+                .ft-sl-down {
+                    position: absolute;
+                    right: 15px;
+                    margin-top: -75px;
+                    a{
+                        padding-left: 10px;
+                    }
+                }
+
+                .ft-app-links {
+                    margin-top: 30px;
+                    
+                    a {
+                        cursor: pointer;
+                        padding-left: 10px;
+                    }
+                }
+
+                
+
+                .ft-cnt-pages {
+                    margin-top: 30px;
+
+                    a {
+                        color: #666;
+                        margin-left: 10px;
+                        text-decoration: none;
+                    }
+                }
+
+                .ft-cnt-pages a:hover {
+                    text-decoration: underline
+                }
+                
+                .ft-vr-logo {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.mobile-sticky-shares {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    z-index: 9;
+}
+
+.heart-circle-mob {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgba(0,0,0,0.3);
+}

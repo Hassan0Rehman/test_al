@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
+  <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="Article" />
+  <meta property="og:site_name" content="Cricingif" />
+  <meta property="fb:app_id" content="1536690803213439" />
+  <meta property="og:image" content="<%= linkPostUrl %>" />
+  <meta name="twitter:image" content="<%= linkPostUrl %>" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@_cricingif" />
+  <meta name="description" content="Read full story at www.cricingif.com/stories/<%= id %>>">
+  <meta property="og:title" content="<%= title %>>">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta property="og:url" content="https://www.cricingif.com/stories/<%= id %>/<%= url %>">
+  <link rel="canonical" href="https://www.cricingif.com/stories/<%= id %>/<%= url %>">
+  <meta property="og:description" content="Read full story at www.cricingif.com/stories/<%= id %>">
+  <meta name="twitter:description" content="Read full story at www.cricingif.com/stories/<%= id %>">
+
+
+
+  <style>
+    <%- myCss %>#vuukle_div {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body class="container-fluid no-padding" style="padding: 0;">
+
+  <% include partials/header %>
+
+    <div align="center" class="no-display-add" style="padding-top:20px">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Responsive Leaderboard Ad -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3238745780396934" data-ad-slot="9021801800" data-ad-format="auto"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+
+    <div class="container-fluid no-padding">
+      <div class="wrapper-outer">
+        <div class="wrapper-inner">
+          <div class="col-md-9 col-sm-8 col-xs-12 left-outer-container" style="padding: 0;">
+            <div class="news-inner-details-row">
+              <div class="news-inner-details-content">
+                <div class="upper-title">
+                  <h2>
+                    <%= seriesName %>
+                  </h2>
+                </div>
+                <div class="main-question">
+                  <h1>
+                    <a href="/stories/<%= id %>/<%= url %>">
+                      <%= title%>
+                    </a>
+                  </h1>
+                </div>
+              </div>
+              <div class="nid-content-wrapper">
+                <!-- "POPULATED FROM ajax/share-widget FOLDER" -->
+                <div id="share-widget"></div>
+
+                <div class="writers-thumb-and-name">
+                  <a id="link-blogger">
+                    <div class="writers-thumb">
+                      <img onerror="this.onerror=null;this.src='https://www.cricingif.com/Images/UserImages/0.png'" src="https://www.cricingif.com/Images/BloggerImages/<%= authorPicId %>.png"
+                      />
+                    </div>
+                    <div class="writers-name">
+                      <p id="blogger-name">By
+                        <%= authorName %>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div id="story-info" class="nid-text-container" data-attr-id="<%= id %>" data-attr-title="<%= title %>" data-attr-articletype="<%= articletype %>"
+                  data-attr-url="<%= url %>">
+                  <%- storyContentTemplate %>
+                    <div class="tc-tags-and-shares">
+                      <div class="tc-tags inline-block">
+                        <% tags.forEach((tag, i) => { %>
+                          <span>#
+                            <%= tag %>
+                          </span>
+                          <% }); %>
+                      </div>
+                    </div>
+                    <!-- <div id="vuukle-emote"></div>
+                      <div id="vuukle_div"></div> -->
+                    <div id="fb-article-comments" class="text-center">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 hide-xs-screen no-padding right-outer-container" style="padding-right: 0; padding-left: 10px;">
+            <div class="scorecard-menu right-column-box hide-xs-screen">
+              <ul class="nav nav-tabs icon-menu-bar">
+                <li class="active action-icons hm-active-action-icon">
+                  <i class="icon-clock" data-toggle="tab" href="#match-timings"></i>
+                </li>
+                <li class="action-icons">
+                  <i class="icon-bookmark" data-toggle="tab" href="#book-marks"></i>
+                </li>
+                <li class="action-icons">
+                  <i class="icon-monitor" data-toggle="tab" href="#notifications"></i>
+                </li>
+                <li class="action-icons">
+                  <i class="icon-users" data-toggle="tab" href="#friends"></i>
+                </li>
+                <li class="action-icons">
+                  <i class="icon-chart-bar" data-toggle="tab" href="#trending"></i>
+                </li>
+              </ul>
+              <div class="tab-content" id="right-widget-scroller">
+                <div id="match-timings" class="tab-pane fade in active">
+                  <%- matchWidgetTemplate %>
+                </div>
+                <div id="book-marks" class="tab-pane fade">
+                  <p>Bookmarks</p>
+                </div>
+                <div id="notifications" class="tab-pane fade">
+                  <p>Notifications.</p>
+                </div>
+                <div id="friends" class="tab-pane fade in">
+                  <p>Friends.</p>
+                </div>
+                <div id="trending" class="tab-pane fade in">
+                  <%- trendingArticlesTemplate %>
+                </div>
+              </div>
+            </div>
+            <div align="center" class="scorecard-ad-300x250 no-display-add">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3238745780396934" data-ad-slot="4452001403"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include partials/footer %>
+
+      <script rel="preload" defer as="script" src="/js/lib/jquery-3.1.1.min.js"></script>
+      <script rel="preload" defer as="script" src="/js/lib/bootstrap.min.js"></script>
+      <script rel="preload" as="script" src="https://platform.twitter.com/widgets.js"></script>
+      <script rel="preload" async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+      <script src="/webpack/storiesPage.bundle.<%= jsChunk %>"></script>
+
+      <!-- GOOGLE ADS AND MOUSE TRACKING SCRIPTS -->
+      <script type="text/javascript">
+        var google_conversion_id = 864160926;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+      </script>
+      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+      <noscript>
+        <div style="display: inline;">
+          <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/864160926/?guid=ON&amp;script=0"
+          />
+        </div>
+      </noscript>
+</body>
+
+</html>

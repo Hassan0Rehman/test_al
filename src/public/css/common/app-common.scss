@@ -1,0 +1,53 @@
+body {
+    font-family: "poppins-regular", Helvetica, Arial, sans-serif!important;
+    background-color: #f4f4f4 !important;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.sixteen-by-nine {
+    background-image: none;
+    background-position: center!important;
+    padding-bottom: 56.25%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.wrapper-inner {
+    max-width: 1260px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+@media(max-width:1250px) {
+    .no-display-add {
+        display: none
+    }
+}
+
+@media(max-width:350px) {
+    .no-display-add {
+        display: none
+    }
+}
+
+.header-logo {
+    margin-top: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 7px
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .1)
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0, 0, 0, .1)
+}

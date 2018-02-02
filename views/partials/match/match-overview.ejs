@@ -1,0 +1,94 @@
+<div class="match-overview">
+    <!-- <div class="match-report bg-white three-border">
+        <div class="title">Match Report</div>
+        <div class="match-summary">
+            <%- matchOverview.matchReport %>
+        </div>
+    </div> -->
+    
+    <div class="match-report bg-white three-border">
+        <div class="title">Match Details</div>
+        <div class="detail-summary">
+            <div class="detail-row">
+                <div class="detail-name">Venue</div>
+                <div class="detail-data">Cape Town</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-name">Series</div>
+                <div class="detail-data"><a><%= matchOverview.SeriesTitle %></a></div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-name">Toss</div>
+                <div class="detail-data" style="color: #8c8c8c;"><%= matchOverview.toss %></div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-name">Umpire</div>
+                <div class="detail-data">
+                    <% if (matchOverview.Umpire) { %>
+                        <% for (var i = 0; i < matchOverview.Umpire.length; i++) { %>
+                            <%= matchOverview.Umpire[i].fln + ',' %>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-name">Match Refree</div>
+                <div class="detail-data">
+                    <% if (matchOverview.Umpirerefere) { %>
+                        <% for (var i = 0; i < matchOverview.Umpirerefere.length; i++) { %>
+                            <%= matchOverview.Umpirerefere[i].fln %>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-name">Tv Umpire</div>
+                <div class="detail-data">
+                    <% if (matchOverview.UmpireTv) { %>
+                        <% for (var i = 0; i < matchOverview.UmpireTv.length; i++) { %>
+                            <%= matchOverview.UmpireTv[i].fln %>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="match-report bg-white three-border">
+        <div class="title">Pitch and Weather Report</div>
+        <div class="pitch-summary">
+            <div class="icon-and-text">
+                <div class="icon" style="background-image: url('https://d7d7wuk1a7yus.cloudfront.net/static-assets/pitch_icon.png')"></div>
+                <div class="text"><%= matchOverview.pitch %></div>
+            </div>
+            <div class="icon-and-text">
+                <div class="icon" style="background-image: url('https://d7d7wuk1a7yus.cloudfront.net/static-assets/wind_icon.png')"></div>
+                <div class="text"><%= matchOverview.weather %></div>
+            </div>
+            <div class="icon-and-text">
+                <div class="icon" style="background-image: url('https://d7d7wuk1a7yus.cloudfront.net/static-assets/humidity_icon.png')"></div>
+                <div class="text"><%= matchOverview.humidity %></div>
+            </div>
+            <div class="icon-and-text">
+                <div class="icon" style="background-image: url('https://d7d7wuk1a7yus.cloudfront.net/static-assets/temprature_icon.png')"></div>
+                <div class="text"><%= matchOverview.temperature %></div>
+            </div>
+        </div>
+    </div>
+    <% if (matchOverview.MOTMId !== null && matchOverview.MOTMName !== '') { %>
+        <div class="match-report bg-white three-border">
+            <div class="title">Man Of The Match</div>
+            <div class="pitch-summary">
+                <div class="icon-and-text">
+                    <div class="icon" style="background-image: url('url(https://d7d7wuk1a7yus.cloudfront.net/player-images/<%= matchOverview.MOTMId %>.png')"></div>
+                    <div class="motm-title">MAN OF THE MATCH</div>
+                    <div class="motm-name"><%= matchOverview.MOTMName %></div>                    
+                </div>
+            </div>
+        </div>
+    <% } %>
+    <div class="match-report bg-white three-border">
+        <div class="title">Related News</div>
+        <div id="related-news"></div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<% for(var i = 0; i < seriesSquad.length; i++) { 
+    var seriesType;
+            if (seriesSquad[i].mt == 1) {
+                seriesType = "Test Squad";
+            } else if (seriesSquad[i].mt == 2) {
+                seriesType = "ODI Squad";
+            }
+            else if (seriesSquad[i].mt == 3) {
+                seriesType = "T20 Squad";
+            }
+            else if (seriesSquad[i].mt == 4) {
+                seriesType = "T10 Squad";
+            } 
+    %>
+
+    <div class="right-column">
+        <div class="inline-block">
+            <div class="detail-text">
+                <p class="no-margin-bottom">
+                    <%= seriesType %>
+                </p>
+            </div>
+        </div>
+        <div class="series-squad-menu" id="series-squad-<%= seriesSquad[i].Id %>" attr-series-squad="<%= seriesSquad[i].Id %>">
+            
+        </div>
+    </div>
+    <% } %>

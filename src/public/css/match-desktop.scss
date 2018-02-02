@@ -1,0 +1,638 @@
+@import "lib/bootstrap/custom-bootstrap";
+@import "themes/header/header-desktop";
+@import "themes/footer/footer";
+@import "cig-fonts";
+@import "icons-sprite-sheet";
+@import "common/app-common";
+@import "common/tabs";
+@import "common/ball-by-ball";
+
+// overide css for tabs in this page
+.action-icons.active {
+    i {
+        color: black !important;        
+    }
+}
+.tab-text {
+    font-style: normal;
+}
+// overide css for tabs in this page end
+
+.hide-video {
+    display: none !important;
+}
+
+.bllbyball-clips-dimensions {
+    width: 100%;
+    height: 100%;
+
+    video {
+        width: 100%;
+        height: 100%;
+    }
+    .vjs-control-bar {
+        position: absolute;
+        top: 0;
+    }
+}
+.hide-default {
+    display: none;
+}
+
+#match-timer{
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-family: "poppins-semibold";
+    font-size: 2em;
+}
+
+.full-scorecard {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+    
+    .squad-column {
+        width: 60%;
+    }
+    .squad-name {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 1.5em;
+        font-family: "poppins-semibold";
+    }
+    .squad-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    .squad-player {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        
+        &.captain {
+            width: 100%;
+            flex-direction: column;
+        }
+        .squad-player-image {
+            width: 90px;
+            height: 90px;
+            background-size: cover;
+            border-radius: 50%;
+            margin-right: 15px;
+            
+            &.captain {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        .player-name {
+            font-size: .8em;
+
+            &.captain {
+                font-size: 1em;
+            }
+        }
+        .player-department {
+            font-size: .7em;
+            color: #c1c1c1;
+
+            &.captain {
+                font-size: 0.8em;
+            }
+        }
+    }
+    .squad-not-playing {
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        .not-playing-heading {
+            font-size: 1.2em;
+            font-family: "poppins-semibold";
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .squad-player {
+            flex-direction: column;
+            align-items: flex-start;     
+        }
+    }
+    .inning-title {
+        background-color: #2c3a42;
+        border-color: #2c3a42;
+        color: #c6e545 !important;
+        padding: 20px;
+        width: 200px;
+        border-radius: 5px;
+        font-size: .8em;
+        border: 1px solid rgba(0,0,0,.1);
+        cursor: pointer;
+        font-family: "poppins-semibold";
+        text-transform: uppercase;
+    }
+    .team-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0px 10px 0px;
+
+        .team-title {
+            width: 100%;
+            font-size: 1.5em;
+            vertical-align: middle;
+            font-family: "poppins-semibold";
+            text-transform: uppercase;
+        }
+    }
+}
+
+.match-desk-row {
+    display: flex;
+    padding-top: 15px;
+    position: relative;
+
+    .margin-15 {
+        margin-bottom: 15px;
+    }
+
+    .three-border {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        border-left: 1px solid rgba(0,0,0,.1);
+        border-right: 1px solid rgba(0,0,0,.1);
+    }
+    .bg-white {
+        background: white;
+    }
+
+    .match-desk-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25%;
+
+        #schort-sc-ajax-temp {
+            width: 95%;
+        }
+        .icon-menu-bar {
+            background-color: white;
+
+            .inning-icon-menu-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                .inning-tab {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    border: 1px solid rgba(0,0,0,.1);
+                }
+            }
+        }
+        .tab-text {
+            font-family: "poppins-semibold";
+            font-size: 0.9em;
+            color: rgba(0,0,0,.3);
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+    .middle-col {
+        width: 50%;
+    }
+    .first-col {
+        align-items: flex-start;
+
+        .score-card-temp {
+            width: 95%;
+        }
+    }
+    .third-col {
+        align-items: flex-end;
+        
+        .score-card-temp {
+            width: 95%;
+        }
+    }
+
+    .video-container {
+        background: #fff;
+        width: 100%;
+        
+        .wrapper {
+            position: relative;
+            width: 100%;
+
+            .video-content {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                &:hover {
+                    .video-description {
+                        display: block !important;    
+                    }
+                }
+            }
+        }
+        .video-description {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            min-height: 115px;
+            background: linear-gradient(#000,transparent);
+            padding: 25px;
+
+            .teams {
+                color: #c6e545;
+                text-transform: uppercase;
+                font-size: .9em;
+                margin-bottom: 5px;
+            }
+            #video-ball-detail {
+                color: #f7f7f7;
+                font-size: 2em;
+                font-family: "poppins-semibold";
+            }
+        }
+        .match-ticker {
+            background-color: #f9fbed;
+            height: 30px;
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            color: #333;
+            font-size: 14px;
+            font-family: "poppins-semibold";
+        }
+    }
+    .match-overview, #match-overview {
+        #related-news {
+            margin-top: 25px;
+
+            .article-link {
+                width: 32%;
+            }
+
+            .articles-row {
+                display: flex;
+                justify-content: space-between;
+            }
+            .wrapper {
+                position: relative;
+                width: 100%;
+
+                .content {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .related-news-content {
+                border: 1px solid rgba(0,0,0,.1);
+                border-top: none;
+                padding: 15px 15px 20px;
+                background-color: #fff;
+
+                .green-color-uppercase  {
+                    font-size: .9em!important;
+                    font-family: "poppins-semibold"!important;
+                    color: #b5d91e;
+                    text-transform: uppercase;
+                    height: 40px;
+                }
+                .news-sub-title {
+                    margin-top: 10px;
+                    overflow: hidden;
+                    word-wrap: break-word;
+                    height: 40px;
+                    color: black;
+                }
+            }
+        }
+
+        .match-report {
+            margin-top: 20px;
+            padding: 30px 25px;
+            background-color: white;
+            
+            .detail-summary {
+                .detail-row {
+                    display: flex;
+                    font-size: 1em;
+                    font-family: "poppins-regular";
+                }
+                .detail-name {
+                    color: #333;
+                    width: 30%;
+                }
+                .detail-data {
+                    width: 70%;
+                    a {
+                        color: #337ab7;
+                    } 
+                }
+            }
+            .prediction-text {
+                text-align: center;
+            }
+            .pitch-summary {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 60px;
+                margin-bottom: 60px;
+                
+                .motm-title {
+                    color: #8c8c8c;
+                    font-size: .9em;
+                    text-transform: uppercase;
+                }
+                .motm-name {
+                    color: #333;
+                    text-transform: none;
+                    font-size: 1em;
+                }
+                .win-prediction {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .team-name {
+                        margin-top: 20px;
+                        font-family: "poppins-semibold";
+                        text-transform: capitalize;
+                    }
+                    .team-flag {
+                        width: 110px;
+                        height: 110px;
+                        background-size: cover!important;
+                        border-radius: 5px;
+                        margin: 0 auto;
+                        cursor: pointer;
+                    }
+                }
+                .prediction-vs {
+                    vertical-align: top;
+                    width: 60px;
+                    height: 60px;
+                    border: 2px solid;
+                    border-radius: 50%;
+                    padding-top: 18px;
+                    margin-top: 20px;
+                    font-family: "poppins-regular";
+                    text-align: center;
+                }
+                .icon-and-text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    .icon {
+                        background-size: cover;
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .text {
+                        font-family: "poppins-semibold";
+                        font-size: 1em;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .title {
+                font-size: 1em;
+                font-family: "poppins-semibold";
+                text-transform: uppercase;
+            }
+            .match-summary {
+                font-size: 14px;
+                color: #333;
+                font-weight: bold
+            }
+        }
+        .prediction-chart {
+            width: 650px;
+            height: 200px;
+            margin: 0 auto 0;
+            margin-bottom: 0;
+            display: block;
+            text-align: center;
+
+            .bars {
+                display: inline-block;
+                width: 600px;
+                height: 160px;
+                padding: 0;
+                margin: 0;
+
+                .bars-column {
+                    display: table-cell;
+                    width: 250px;
+                    height: 160px;
+                    margin: 0;
+                    text-align: center;
+                    position: relative;
+
+                    .team-name {
+                        position: absolute;
+                        left: 45%;
+                        bottom: -45px;
+                        color: #666;
+                        font-family: "poppins-semibold";
+                    }
+                    .bar {
+                        display: block;
+                        width: 170px;
+                        margin-left: 80px;
+                        background: #c6e545;
+                        position: absolute;
+                        bottom: 0;
+
+                        border-top-right-radius: 10px;
+                        border-top-left-radius: 10px;
+
+                        p {
+                            position: absolute;
+                            width: 100%;
+                            color: #fff;
+                            font-family: "poppins-semibold";
+                            margin-top: 10px;
+                        }
+                    }
+
+                    span {
+                        color: #666;
+                        width: 100%;
+                        position: absolute;
+                        bottom: -3.5em;
+                        left: 0;
+                        text-align: center;
+                        padding-left: 80px;
+                        font-family: "poppins-semibold";
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+    }
+    
+    // .score-card-temp {
+        .short-sc-container {
+            width: 100%;
+            height: 100%;
+
+            .match-summary {
+                min-height: 165px;
+                padding: 20px 0;
+                background: #2c3a42;
+                
+                .teams {
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    
+                    .team-name {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                    .team-1 {
+                        width: 40%;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .vs-text {
+                        width: 16%;
+                        font-size: 1.2em;
+                        color: #fff;
+                        text-transform: uppercase;
+                        text-align: center;
+                    }
+                    .team-2 {
+                        width: 40%;
+                        display: flex;
+                        justify-content: flex-start;
+                    }
+                }
+                .scoring {
+                    color: #fff;
+
+                    .latest-score {
+                        margin-bottom: 10px;
+                        margin-top: 20px;
+                        font-size: 2em;
+                        font-weight: 500;
+                        line-height: 1.1;
+                        font-family: "poppins-semibold";
+                    }
+                    .latest-overs {
+                        margin-bottom: 10px;
+                        font-size: .85em;
+                        color: #c1c1c1;
+                    }
+                    .first-innings {
+                        margin-bottom: 10px;
+                        font-size: .85em;
+                    }
+                    .team-1 {
+                        align-items: flex-end;
+                    }
+                    .team-2 {
+                        align-items: flex-start;
+                    }
+                    .team-scores {
+                        flex-direction: column;
+                    }
+                    .no-cont {
+                        width: 16%;
+                    }
+                }
+                .game-name {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: .85em;
+                    margin-bottom: 5px;
+                    color: #c1c1c1;
+                }
+                .latest-sr {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    font-size: .85em;
+                    color: #c6e545;
+                    padding-right: 15px;
+                }
+            }
+        }
+        
+    // }
+    .inning-bowling {
+        margin-top: 30px;
+        border-top: 1px solid rgba(0,0,0,.1);
+        padding-top: 15px;
+    }
+
+    .player-scores {
+        background: white;
+        overflow: hidden;
+
+        .player-scores-container {
+            padding: 5px 0px 5px 10px;
+        }
+        .sc-category-inning {
+            width: 15%;
+        }
+        .sc-header {
+            display: flex;
+            align-items: center;
+            font-size: .9em;
+            font-family: "poppins-semibold";
+            text-transform: uppercase;
+            height: 40px;
+            text-align: center;
+
+            .sc-category-1 {
+                width: 40%;
+                text-align: left;
+            }
+            .sc-category {
+                width: 10%;
+            }
+        }
+        .sc-values {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            text-align: center;
+
+            .sc-player-1 {
+                width: 40%;
+                font-size: 0.9em;
+                text-align: left;
+            
+                .player-status {
+                    color: rgba(0,0,0,.44);
+                }
+            }
+            .sc-player {
+                width: 10%;
+                font-size: 0.9em;        
+            }
+        }
+    }
+}

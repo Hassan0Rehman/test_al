@@ -1,0 +1,209 @@
+.ball-filters {
+    height: 60px;
+    position: relative;
+
+    .Select-control {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .Select-value {
+            padding: 0 !important;
+            position: relative !important;
+            margin-top: 10px;
+        }
+        .Select-input {
+            display: none !important;
+        }
+        .Select-clear-zone {
+            display: none;
+        }
+    }
+
+    .inning-selection {
+        height: 60px;
+        width: 75px;
+        font-family: "poppins-semibold";
+        font-size: 2em;
+        text-align-last: center;
+    }
+    .inning-title {
+        position: absolute;
+        left: 5px;
+        font-size: .9em;
+        z-index: 1;
+    }
+    .inning-option {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+}
+
+.over-detail {
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0,0,0,.1);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 750px;
+    
+    .over-detail-comp {
+        margin: auto;
+    }
+
+    .ball-detail {
+        display: flex;
+        justify-content: space-between;
+        min-height: 50px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+
+        .ball-gif-cover {
+            height: 125px;
+            width: 50%;
+            background-image: url(https://d7d7wuk1a7yus.cloudfront.net/static-assets/placeholder.png);
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+
+            .gif-icon {
+                position: absolute;
+                left: 42%;
+                top: 36%;
+                width: 35px;
+                height: auto;
+            }
+        }
+        .ball-data {
+            display: flex;
+            width: 90%;
+            position: relative;
+            padding-left: 10px;
+            padding-right: 35px;
+        }
+        .ball-num {
+            font-size: 1.2em;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+    }
+}
+
+.horizontal-slider {
+    
+    .horizontal-slider-area {
+        display: flex;
+    }
+    .track-horizontal {
+        width: 100%;
+        bottom: 0;
+        opacity: 0.1;
+        height: 10px !important;
+        background: #333;
+
+        .thumb-horizontal {
+            background: #333;
+            height: 10px !important;
+        }
+    }
+    .track-vertical {
+        display: none;
+    }
+    .over-col {
+        cursor: pointer;
+    }
+    .over-row {
+        display: flex;
+        white-space: nowrap;
+        border-left: 1px solid rgba(0,0,0,.1);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 15px 20px 15px 20px;
+        background: white;
+    }
+    .over-number {
+        font-family: "poppins-semibold";
+        text-transform: uppercase;
+        font-size: .9em;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: rgba(0,0,0,.3);
+        border-left: 1px solid rgba(0,0,0,.1);
+        border-top: 1px solid rgba(0,0,0,.1);        
+    }
+}
+
+.over-ball {
+    border: 1px solid #2c3a42;
+    color: #2c3a42;
+    text-transform: uppercase;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    text-align: center;
+    font-family: "poppins-semibold";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.score {
+        background: #2c3a42;
+        border: #2c3a42;
+        color: white !important;
+    }
+    &.boundry {
+        border: #fbc817;
+        background: #fbc817;
+        color: white !important;
+    }
+    &.wicket {
+        border: #ff4a77;
+        background: #ff4a77;
+        color: white !important;
+    }
+}
+.over-ball-full {
+    border: 1px solid #2c3a42;
+    color: #2c3a42;
+    text-transform: uppercase;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    text-align: center;
+    font-family: "poppins-semibold";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+    &.score {
+        background: #2c3a42;
+        border: #2c3a42;
+        color: white !important;
+    }
+    &.boundry {
+        border: #fbc817;
+        background: #fbc817;
+        color: white !important;
+    }
+    &.wicket {
+        border: #ff4a77;
+        background: #ff4a77;
+        color: white !important;
+    }
+}

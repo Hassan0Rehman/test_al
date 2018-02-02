@@ -1,0 +1,7 @@
+<% for ( var i = 0; i < seriesHeaderDropdown.length; i++ ) { %>
+    <div class="width-100 dropdown-tab series-dropdown-truncate" title="<%= seriesHeaderDropdown[ i ].t %>">
+      <a class="margin-10 news-link ajax-link" href="/series/<%= seriesHeaderDropdown[ i ].Id%>/<%= seriesHeaderDropdown[ i ].t.split(' ').join('-')%>">
+        <%= seriesHeaderDropdown[ i ].t %>
+      </a>
+    </div>
+<% } %>

@@ -1,0 +1,149 @@
+@import "themes/header/header-mobile";
+@import "themes/footer/footer-mobile";
+@import "common/schedule-widget";
+@import "common/articles";
+@import "cig-fonts";
+@import "icons-sprite-sheet";
+@import "common/app-common";
+@import "common/mobile-menu";
+@import "common/c-bootstrap";
+@import "common/tabs";
+@import "common/share-widget-mobile";
+
+.mobile-content {
+    margin-top: 105px;
+
+    .wrapper-outer {
+        background: #f4f4f4;
+
+        .wrapper-inner {
+            max-width: 1260px;
+            height: 100%;
+            margin: 0 auto;
+
+            .news-inner-details-row {
+                margin-top: 20px;
+                background: #fff;
+            
+                .news-inner-details-content {
+                    padding: 25px;
+                    padding-bottom: 0px;
+                    
+                    .upper-title h2 {
+                        color: #a2c21b;
+                        text-transform: uppercase;
+                        font-size: .9em;
+                        font-family: "poppins-semibold";
+                        display: inline-block;
+                        margin: 0 0 10px;
+                        line-height: 18px;
+                    }
+                    .upper-title span {
+                        float: right;
+                        font-size: .9em;
+                        display: inline-block;
+                        color: #666;
+                    }
+                    .main-question {
+                        h1 {
+                            color: #404040;
+                            font-family: "poppins-semibold";
+                            margin: 0 0 10px;
+                            line-height: 1.42857143;
+            
+                            a {
+                                text-decoration: none;
+                                color: #666;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .nid-content-wrapper {
+                    padding-bottom: 30px;
+                    background: #fff;
+                    position: relative;
+            
+                    .nid-text-container {
+                        font-size: 1.1em;
+                        color: #666;
+                        padding: 25px;
+
+                        .image-markup-container {
+                            width: 100%;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        
+                        .tc-tags-and-shares {
+                            margin-top: 20px;
+                            margin-bottom: 20px;
+            
+                            .inline-block {
+                                display: inline-block;
+                            }
+                            .tc-tags {
+                                margin-top: 30px;
+            
+                                span {
+                                    margin-top: 10px;
+                                    font-family: "poppins-semibold";
+                                    font-size: .7em;
+                                    border-radius: 15px;
+                                    padding: 5px 15px 5px 15px;
+                                    background: #e7e7e7;
+                                    margin-left: 5px;
+                                    text-transform: uppercase;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+            
+                        #cms-content  {
+                            p {
+                                line-height: 1.875;
+                            }
+                            img.article-img {
+                                display: block;
+                                width: 100%;
+                            }
+
+                            iframe[src*='facebook.com'] {
+                                width: 100%!important;
+                                margin: 0 auto;
+                            }
+
+                            iframe[src*='youtube.com'] {
+                                width: 100%!important;
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                    .writers-thumb-and-name {
+                        padding: 25px;
+                        padding-bottom: 0px;
+            
+                        .writers-thumb {
+                            display: inline-block;
+                            img {
+                                width: 50px;
+                                border-radius: 50%;
+                            }
+                        }
+                        .writers-name {
+                            display: inline-block;
+                            margin-left: 15px;
+            
+                            p {
+                                font-family: "poppins-semibold";
+                                color: #4d4d4d;
+                                margin: 0 0 10px;
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+    }
+}

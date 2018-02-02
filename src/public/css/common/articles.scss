@@ -1,0 +1,215 @@
+.homepage-content{
+    @media (max-width: 767px) {
+        .articles-list {
+            width: 100%;
+            padding: 0;
+
+            a {
+                text-decoration: none !important;
+                cursor: pointer;                
+            }
+
+            .top-article-header {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                margin-top: 20px;
+                background-color: #fff;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 11px;
+                margin-bottom: 1px;
+    
+                a {
+                    color: #a5c715 !important;
+
+                    p {
+                        display: inline;
+                        margin: 0 0 10px 5px;
+                    }
+                }
+            }
+            .article-content {
+                width: 100%;
+                
+                .article-text-wrapper {
+                    width: 100%;
+                    display: flex;
+
+                    .article-text-titles {
+                        width: 60%;
+                        background: #fff;
+                        padding-left: 5px;
+
+                        .wrapper {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+
+                            .four-by-five-content {
+                                padding-bottom: 100%;
+                                background-size: cover;
+                                background-position: center;
+                            }
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                                overflow: hidden;
+                                position: absolute;
+                                top: 0px;
+                                bottom: 0px;
+                                left: 0px;
+                                right: 0px;
+                                height: 100%;
+                                width:100%;
+
+                                .title-heading {
+                                    font-family: "poppins-semibold";
+                                    font-size: 1em;
+                                    height: 40px;
+                                    margin-top: 5px;
+                                    margin-bottom: 5px;
+                                    line-height: 20px;
+                                    overflow: hidden;
+
+                                    a {
+                                        color: #333;
+                                    }
+                                }
+                                .series-info {
+                                    p {
+                                        margin-top: 10px 0px 10px 0px;
+                                        font-size: .8em;
+                                        color: red;
+                                    }
+                                }
+                                .sub-article-section {
+                                    .sub-article {
+                                        margin-top: 5px;
+                                        display: flex;
+    
+                                        .sub-article-sm-img {
+                                            background-size: cover !important;
+                                            background-position: center !important;
+                                            display: inline-block;
+                                            width: 30px;
+                                            height: 30px;
+                                            vertical-align: top;
+                                        }
+                                        .sub-article-sm-text {
+                                            height: 30px;
+                                            font-size: 0.6em;
+                                            padding-left: 5px;
+                                            overflow: hidden;
+                                            width: 80%;
+                                            
+                                            a {
+                                                background-color: transparent;
+                                                color: #333;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .article-image {
+                        width: 40%;
+
+                        .wrapper {
+                            position: relative;
+                            width: 100%;
+
+                            .four-by-five {
+                                background-size: cover !important;
+                                background-position: center !important;
+                                padding-bottom: 151%;
+                            }
+                            .content {
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .featured-article-detail {
+                .wrapper {
+                    position: relative;
+                    width: 100%;
+
+                    .four-by-five {
+                        padding-bottom: 56%!important;
+                        background-size: cover !important;
+                        background-position: center !important;
+                    }
+                    .content {
+                        position: absolute;
+                        top: auto;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        font-family: "poppins-semibold";
+
+                        .blog-pic-overlay {
+                            position: relative;
+                            vertical-align: bottom;
+                            background: linear-gradient(transparent,black);
+                            
+                            .blog-pic-overlay-wrapper {
+                                height: 100%;
+                                padding-left: 10px;
+                                padding-right: 10px;
+
+                                .blog-overlay-tag {
+                                    font-size: 0.8em;
+                                    background: #2c3a42;
+                                    display: inline-block;
+                                    color: #c6e545;
+                                    padding: 2px 5px 2px 5px;
+                                }
+                                .blog-overlay-title {
+                                    height: auto;
+                                    font-size: 0.9em;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    color: #fff;
+                                    font-family: "poppins-semibold";
+                                }
+                                .featured-article-desc-row {
+                                    display: flex;
+                                    justify-content: space-between;
+    
+                                    .author-details {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        max-width: 80%;
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                        
+                                        .author-name {
+                                            color: #fff;
+                                            font-size: 0.8em;
+                                        }
+                                        .rounded {
+                                            border-radius: 50px;
+                                        }
+                                    }
+    
+                                    .blog-time-and-comments {
+                                        font-size: 0.8em;
+                                        color: #949494;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div id="player-rankings-server">
+    <div class="rankings-header">
+        <div class="rankings-title inline-block">
+            <h4 class="detail-text">
+                <p class="no-margin-bottom">Player Rankings</p>
+            </h4>
+            <div class="copy-text">
+                <p class="team-rank-title">ICC's Top 10 <%= selected.filterName %></p>
+            </div>
+        </div>
+        <div class="rankings-dropdown inline-block pull-right">
+            <div class="dropdown">
+                <div class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                    <div class="three-dots"></div>
+                </div>
+                <ul class="dropdown-menu">
+                    <% options.map((option, i) => { %>
+                        <li> %>
+                            <a><%= option.name %></a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ranked-teams">
+        <% playerRankings.map((player, i) => { %>
+            <div class="team-row">
+                <div class="team-order"><%= i+1 %></div>
+                <div class="team-flag">
+                    <img class="rounded" height="35" width="35" style="background:url('http://d7d7wuk1a7yus.cloudfront.net/player-images/<%= player.pi %>.png'), url('/Images/placeholder.png');"/>
+                </div>
+                <div class="team-name"><%= player.pn %></div>
+            </div>
+        <% }); %>
+    </div>
+</div>

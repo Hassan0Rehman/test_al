@@ -1,0 +1,118 @@
+<div>
+   <div class="short-sc-container">
+        <div class="match-summary">
+            <div class="teams">
+                <div class="team-1">
+                    <div class="sprite-<%= smallScorecard.t1t.replace(/\s+/g, '').toLowerCase() %>"></div>&nbsp;&nbsp;
+                    <div class="team-name"><%= smallScorecard.t1n %></div>
+                </div>
+                <div class="vs-text">VS</div>
+                <div class="team-2">
+                    <div class="team-name"><%= smallScorecard.t2n %></div>&nbsp;&nbsp;
+                    <div class="sprite-<%= smallScorecard.t2t.replace(/\s+/g, '').toLowerCase() %>"></div>
+                </div>
+            </div>
+            <div class="teams scoring">
+                <div class="team-1 team-scores">
+                    <% if (smallScorecard.mt === 'Test') { %>
+                        <div class="latest-score">
+                            <%= smallScorecard.t1i2s %>
+                        </div>
+                        <div class="latest-overs">
+                            <%= smallScorecard.t1i2o %> overs
+                        </div>
+                        <div class="first-innings">
+                            <%= smallScorecard.t1i1s + '(' + smallScorecard.t1i1o + ')' %>
+                        </div>
+                    <% } else { %>
+                        <div class="latest-score">
+                            <%= smallScorecard.t1i1s %>
+                        </div>
+                        <div class="latest-overs">
+                            <%= smallScorecard.t1i1o %> overs
+                        </div>
+                    <% } %>
+                </div>
+                <div class="no-cont"></div>
+                <div class="team-2 team-scores">
+                    <% if (smallScorecard.mt === 'Test') { %>
+                        <div class="latest-score">
+                            <%= smallScorecard.t2i2s %>
+                        </div>
+                        <div class="latest-overs">
+                            <%= smallScorecard.t2i2o %> overs
+                        </div>
+                        <div class="first-innings">
+                            <%= smallScorecard.t2i1s + '(' + smallScorecard.t2i1o + ')' %>
+                        </div>
+                    <% } else { %>
+                        <div class="latest-score">
+                            <%= smallScorecard.t2i1s %>
+                        </div>
+                        <div class="latest-overs">
+                            <%= smallScorecard.t2i1o %> overs
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="game-name">
+                <%= smallScorecard.mh + ' ' + smallScorecard.ml %>
+            </div>
+            <div class="latest-sr">RR: 3.16</div>
+        </div>
+   </div>
+   <% if (userAgent === 'Desktop') { %>
+    <div class="player-scores">
+        <div class="player-scores-container">
+            <div class="sc-header">
+                <div class="sc-category-1">Batsman</div>
+                <div class="sc-category">R</div>
+                <div class="sc-category">B</div>
+                <div class="sc-category">4</div>
+                <div class="sc-category">6</div>
+                <div class="sc-category">SR</div>
+            </div>
+            <div class="sc-values">
+                <div class="sc-player-1"><%= batsman1Name %></div>
+                <div class="sc-player"><%= batsman1Runs %></div>
+                <div class="sc-player"><%= batsman1Balls %></div>
+                <div class="sc-player"><%= batsman14s %></div>
+                <div class="sc-player"><%= batsman16s %></div>
+                <div class="sc-player"><%= (parseFloat(parseInt(batsman1Runs) / parseInt(batsman1Balls) ) * 100).toFixed(2) %></div>
+            </div>
+            <div class="sc-values">
+                <div class="sc-player-1"><%= batsman2Name %></div>
+                <div class="sc-player"><%= batsman2Runs %></div>
+                <div class="sc-player"><%= batsman2Balls %></div>
+                <div class="sc-player"><%= batsman24s %></div>
+                <div class="sc-player"><%= batsman26s %></div>
+                <div class="sc-player"><%= (parseFloat(parseInt(batsman2Runs) / parseInt(batsman2Balls)) * 100).toFixed(2) %></div>
+            </div>
+            <div class="sc-header">
+                <div class="sc-category-1">Bowler</div>
+                <div class="sc-category">O</div>
+                <div class="sc-category">M</div>
+                <div class="sc-category">R</div>
+                <div class="sc-category">W</div>
+                <div class="sc-category">EC</div>
+            </div>
+            <div class="sc-values">
+                <div class="sc-player-1"><%= bowler1Name %></div>
+                <div class="sc-player"><%= bowler1Overs %></div>
+                <div class="sc-player"><%= bowler1Maidens %></div>
+                <div class="sc-player"><%= bowler1Runs %></div>
+                <div class="sc-player"><%= bowler1Wickets %></div>
+                <div class="sc-player"><%= (parseFloat(parseInt(bowler1Runs) / parseInt(bowler1Overs))).toFixed(2) %></div>
+            </div>
+            <div class="sc-values">
+                <div class="sc-player-1"><%= bowler2Name %></div>
+                <div class="sc-player"><%= bowler2Overs %></div>
+                <div class="sc-player"><%= bowler2Maidens %></div>
+                <div class="sc-player"><%= bowler2Runs %></div>
+                <div class="sc-player"><%= bowler2Wickets %></div>
+                <div class="sc-player"><%= (parseFloat(parseInt(bowler2Runs) / parseInt(bowler2Overs))).toFixed(2) %></div>
+            </div>    
+        </div>
+    </div>
+   <% } %>
+</div>

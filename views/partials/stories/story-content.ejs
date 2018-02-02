@@ -1,0 +1,108 @@
+<div id="cms-content">
+    <% for (var i = 0 ; i < tagsStartIndices.length ; i++) { %>
+        <% var startIndex = tagsStartIndices[i]; %>
+        <% var token = srcString.substring(startIndex, tagsEndIndices[i] + 2); %>
+        <% var type = token.split(' ')[0].replace('{{', ''); %>
+        <% if(type === 'h1') { %>
+            <% var args = token.substring(5, token.length - 2) %>
+            <div class="article-content-h1"><p><%= args %></p></div>
+        
+        <% } else if (type === 'title') {%>
+            <% var args = token.substring(7, token.length - 2) %>
+            <div class="tc-quiz-ques" style="margin-top:20px;" >
+            <p><%= args %></p>
+            </div>
+        
+        <% } else if (type === 'text') {%>
+            <% var args = token.substring(6, token.length - 2) %>
+            <% if (args.split('{{link')[1]) {%>
+            <% var url = args.split('{{link')[1].split('++'); %>
+            <% args = args.replace(url[0], url[1]); %>
+            <% args = args.replace('{{link', ''); %>
+            <% args = args.replace(args.split('++')[1], ''); %>
+            <% args = args.replace('++', ''); %>
+            <% } %>
+            <p><%= args %></p>
+        
+        <% } else if (type === 'h2') {%>
+            <% var args = token.substring(5, token.length - 2) %>
+            <div class="article-content-h2" ><p><%= args %></p></div>
+        
+        <% } else if (type === 'detail') {%>
+            <% var args = token.substring(8, token.length - 2); %>
+            <h5><%= args %></h5>
+        
+        <% } else if (type === 'feature-image') {%>
+            <% var args = token.substring(15, token.length - 2).trim(); %>
+            <img src="<%= args %>"/>
+        
+        <% } else if (type === 'newline') {%>
+            <br/>
+        
+        <% } else if (type === 'image') {%>
+            <% var args = token.substring(7, token.length - 2).split("++"); %>
+            <div class="image-markup-container">
+                <img src="<%= args[0] %>" alt="<%= args[1] %>"/>
+            </div>
+            
+        <% } else if (type === 'tweet') {%>
+            <% var args = token.substring(7, token.length - 2).trim(); %>
+            <div class="tweet-markup-container">
+                <div id="<%= args %>" data-attr-args="<%= args %>"  align="center"></div>
+            </div>
+            
+        <% } else if (type === 'block-quote') {%>
+            <% var args = token.substring(14, token.length - 2).split('++'); %>
+            <blockquote cite="<%= args[1] %>"><%= args[0].trim() %></blockquote>
+            <div  align='center' style='margin-bottom: 10px;' >
+            <div class='tc-quiz-ques'>
+                <p>
+                <span style='color:#C6E545;font-size: 1.7em;'>
+                </span>
+                <%= args[0].trim() %>
+                <span style='color:#C6E545;font-size: 1.7em;'>
+                </span>
+                <div class ='tc-sm-text'><%= args[1] %></div>
+                </p>
+            </div>
+            </div>
+        <% } else if (type === 'pull-quote') {%>
+            <% var args = token.substring(13, token.length - 2).trim(); %>
+            <div class="pullquote-markup-container">
+                <div class="pullquote-text">
+                    <p><%= args %></p>
+                </div>
+            </div>
+        <% } else if (type === 'list') {%>
+            <% var _token = token.replace("{{list", ''); %>
+            <% _token = token.replace("}}", ''); %>
+            <% _token = token.replace('\n', ''); %>
+            <% var args = token.split("++"); %>
+            <div style="padding-left:50px;margin-bottom: 10px;">
+                <% for (var list = 0; list < args.length; list++) { %>
+                    <div>
+                        <div class="bullet-dot"></div>
+                        <p class="bullet-text"><%= args[list].trim() %></p>
+                    </div>
+                    </br>    
+                <% } %>
+            </div>
+        <% } else if (type === 'video') {%>
+                <% if(userRegion === 'PK') { %>
+                    <% var args = token.substring(7, token.length - 2); %>
+                    <% args = args.split("++"); %>
+                    <video controls="true">
+                        <source src="<%= args.trim() %>" type="video/mp4">
+                                
+                        </source>
+                    </video>
+                <% } %>
+        <% } else if(type === 'blockQoute') {%>
+            <% var args = token.substring(12, token.length - 2); %>
+             <%- args %> 
+        <% } else if(type === 'iFrame') { %>
+            <% var args = token.substring(9, token.length - 2); %>
+             <%- args %> 
+        <% } %>
+    <% } %>
+</div>

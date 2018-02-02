@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="css/main.css" rel="stylesheet"/>
+    
+    <script src="js/lib/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/lib/signal-r.min.js" type="text/javascript"></script>
+    <script src="https://cig-staging-ops.azurewebsites.net/signalr/hubs" type="text/javascript"></script>
+  </head>
+  <body class="container-fluid no-padding" style="padding: 0;">
+    <%- include partials/header.ejs %>
+
+    <div class="container no-padding">
+        <div class="lm-page-wrapper col-md-12 col-lg-12 no-padding">
+            <div class="left-column col-lg-3 col-md-3 hide-sm-screen">
+
+            </div>
+            <div class="center-column col-lg-6 col-md-6 col-sm-7 col-xs-12 full-xs-column">
+                Page  need to be configured, coming soon !!
+                <div id="ball-by-ball-app"></div>
+            </div>
+            <div class="right-column col-lg-3 col-md-3 col-sm-5 hide-xs-screen no-padding-left">
+
+            </div>
+        </div>
+    </div>
+
+    <%- include partials/footer.ejs %>
+    
+    <script type="text/javascript">
+      var urls = ["webpack/matchPage.bundle.js"];
+      var i = 0;
+
+      var recursiveCallback = function() {
+        if (i++ < urls.length - 1) {
+          loadScript(urls[i], recursiveCallback)
+        }
+      }
+
+      loadScript(urls[0], recursiveCallback);
+
+      function loadScript(url, callback) {
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+
+        if (script.readyState) {
+          script.onreadystatechange = function() {
+            if (script.readyState == "loaded" || script.readyState == "complete") {
+              script.onreadystatechange = null;
+              callback();
+            }
+          };
+        } else { //Others
+          script.onload = function() {
+            callback();
+          };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+      }
+    </script>
+    <!-- <script src="webpack/matchPage.bundle.js" type="text/javascript"></script> -->
+  </body>
+</html>
+

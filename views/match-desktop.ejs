@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
+  <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
+  <meta name='viewport' content='content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"' />
+
+  <style>
+    <%- myCss %>
+  </style>
+</head>
+
+<body class="body">
+
+  <% include partials/header %>
+
+    <div align="center" class="no-display-add" style="padding-top:20px">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Responsive Leaderboard Ad -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3238745780396934" 
+        data-ad-slot="9021801800" 
+        data-ad-format="auto">
+      </ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <div class="container-fluid match-page"
+      id="match-content" 
+      data-attr-id="<%= matchId %>" 
+      data-attr-inningId="<%= scoreCard.inningsId %>"
+      data-attr-allInnings="<%= allInnings %>"
+      data-attr-matchState="<%= scoreCard.smallScorecard.ms %>"
+      data-attr-allowGif="<%= allowGif %>">
+
+      <div class="match-desk-row">
+        <div class="match-desk-col first-col">
+          <div id="schort-sc-temp" class="score-card-temp">
+            <%- scoreCard.scoreCardTemplate %>
+          </div>
+          <div id="schort-sc-ajax-temp"></div>
+
+          <div align="center" class="scorecard-ad-300x250 no-display-add">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Right Sidebar Rectangle -->
+            <ins class="adsbygoogle " style="display:inline-block; width:300px;height:250px" data-ad-client="ca-pub-3238745780396934"
+              data-ad-slot="4452001403"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+
+        <div class="match-desk-col middle-col">
+          <div class="video-container">
+            <div class="wrapper">
+              <% if (allowVideo) { %>
+                <div class="sixteen-by-nine"></div>
+              <% } %>
+              <div class="video-content">
+                <% if (matchState === 0 && allowVideo) { %>
+                  <div class="post-match-videos">
+                    <div id="video-title" class="video-description hide-default">
+                      <div class="match-title ">
+                        <div class="teams"><%= scoreCard.smallScorecard.t1t + ' V ' + scoreCard.smallScorecard.t2t %></div>
+                      </div>
+                      <div class="ball-info">
+                        <div id="video-ball-detail"></div>                          
+                      </div>
+                    </div>
+
+                    <video type="video/mp4" width="100%" height="100%" autoplay="true"
+                      controlslist="nodownload" controls="" id="bllbyball-clips" src=""
+                      poster="">
+                      <span class="video-hide">Your browser does not support the video tag.</span>
+                    </video>
+                  </div>
+                  <% } else { %>
+                    <% if (allowVideo) { %>
+                      <div id="video-title" class="video-description hide-default">
+                        <div class="match-title ">
+                          <div class="teams"><%= scoreCard.smallScorecard.t1t + ' V ' + scoreCard.smallScorecard.t2t %></div>
+                        </div>
+                        <div class="ball-info">
+                          <div class="ball-detail"></div>                          
+                        </div>
+                      </div>
+
+                      <video id="bllbyball-clips" class="hide-video" type="video/mp4" width="100%" height="100%" autoplay=""
+                        controlslist="nodownload" controls="" id="vid" src=""
+                        poster="">
+                        <span class="video-hide">Your browser does not support the video tag.</span>
+                      </video>
+                      <video id="stream-video" data-attr-url="<%= videoStreamUrl %>"
+                        data-attr-state="<%= matchState %>"
+                        class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" 
+                        controls>
+                      </video>
+                    <% } %>
+                  <% } %>
+              </div>
+            </div>
+            <div class="match-ticker">
+              <%= closingComment %>
+            </div>
+          </div>
+          <div class="action-tabs" style="width: 100%;">
+            <div class="icon-menu-bar tab three-border">
+              <% if (matchState == 2) { %>
+                <div class="action-icons tablinks active" onclick="setTab.call(this, event, 'match-overview')">
+                  <i class="tab-text">overview</i>
+                </div>
+                <div class="action-icons tablinks" onclick="setTab.call(this, event, 'lineup')">
+                  <i class="tab-text">line-up</i>
+                </div>
+                <div class="action-icons tablinks" onclick="setTab.call(this, event, 'live-blog')">
+                  <i class="tab-text">live blog</i>
+                </div>
+              <% } else { %>
+                  <div class="action-icons tablinks <%= scoreCard.smallScorecard.ms === 0 ? 'active' : '' %>" onclick="setTab.call(this, event, 'match-overview')">
+                    <i class="tab-text">overview</i>
+                  </div>
+                  <div class="action-icons tablinks" onclick="setTab.call(this, event, 'ball-by-ball')">
+                    <i class="tab-text">ball by ball</i>
+                  </div>
+                  <div class="action-icons tablinks" onclick="setTab.call(this, event, 'scorecard')">
+                    <i class="tab-text">scorecard</i>
+                  </div>
+                  <div class="action-icons tablinks" onclick="setTab.call(this, event, 'lineup')">
+                    <i class="tab-text">line-up</i>
+                  </div>
+                  <div class="action-icons tablinks" onclick="setTab.call(this, event, 'live-blog')">
+                    <i class="tab-text">live blog</i>
+                  </div>
+                <% } %>
+            </div>
+            <div class="tab-content">
+              <div id="match-overview" class="tabcontent <%= scoreCard.smallScorecard.ms === 0 ? 'active' : 'hide-default' %>">
+                <div class="match-report bg-white three-border" style="padding: 25px; text-align: center; margin-top: 0px;">
+                  <div class="match-summary">
+                    <% if (scoreCard.smallScorecard) { %>
+                      <%= scoreCard.smallScorecard.t1t + ' V ' + scoreCard.smallScorecard.t2t + ' - ' %>
+                        <%= scoreCard.smallScorecard.mh + '-' + scoreCard.smallScorecard.ml %>
+                          <br>
+                          <% if (scoreCard.smallScorecard.ms === 0) %>
+                            <%= scoreCard.smallScorecard.mr %>
+                              <% } %>
+                  </div>
+                </div>
+                <div class="match-prediction-data" data-attr-team1Id="<%= scoreCard.smallScorecard.t1i %>" data-attr-team1title="<%= scoreCard.smallScorecard.t1t %>"
+                  data-attr-team2Id="<%= scoreCard.smallScorecard.t2i %>" data-attr-team2title="<%= scoreCard.smallScorecard.t2t %>"
+                  data-attr-id="<%= matchId %>" data-attr-ms="<%= scoreCard.smallScorecard.ms %>">
+                </div>
+                <div id="prediction-result"></div>
+
+                <%- matchOverviewTemplate %>
+              </div>
+              <div id="ball-by-ball" class="tabcontent fade <%= scoreCard.smallScorecard.ms === 1 ? 'active' : 'hide-default' %>"></div>
+              <div id="scorecard" class="tabcontent fade hide-default"></div>
+              <div id="lineup" class="tabcontent fade in hide-default"></div>
+              <div id="live-blog" class="tabcontent fade in hide-default">
+                <p>Live blog.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="match-desk-col third-col">
+          <div id="worm-chart" style="position: relative; width: 100%; padding-left: 15px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <% include partials/footer %>
+
+      <!-- <link rel="preload" href="css/custom-bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="css/custom-bootstrap.css"></noscript> -->
+      <!-- TODO:: ADD CROSS BROWSER SUPPORT FOR PRELOAD -->
+
+      <script type="text/javascript">
+        var urls = [
+          'https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js',
+          'https://unpkg.com/videojs-flash/dist/videojs-flash.js',
+          'https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js'
+        ];
+        var i = 0;
+        var recursiveCallback = function () {
+          if (i++ < urls.length - 1) {
+            loadScript(urls[i], recursiveCallback)
+          }
+        }
+
+        loadScript(urls[0], recursiveCallback);
+
+        function loadScript(url, callback) {
+          var script = document.createElement("script")
+          script.type = "text/javascript";
+
+          if (script.readyState) {
+            script.onreadystatechange = function () {
+              if (script.readyState == "loaded" || script.readyState == "complete") {
+                script.onreadystatechange = null;
+                callback();
+              }
+            };
+          } else { //Others
+            script.onload = function () {
+              callback();
+            };
+          }
+
+          script.src = url;
+          document.getElementsByTagName("head")[0].appendChild(script);
+        }
+      </script>
+
+      <!-- VIDEO.JS -->
+      <link href="https://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
+    
+      <script src="/webpack/matchPage.bundle.<%= jsChunk %>"></script>
+      <script src="https://vjs.zencdn.net/6.2.8/video.js"></script>
+      <script src="https://unpkg.com/videojs-playlist@4.2.0/dist/videojs-playlist.js"></script>
+      <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 864160926;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+          /* ]]> */
+      </script>
+      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+      </script>
+      <noscript>
+        <div style="display: inline;">
+          <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/864160926/?guid=ON&amp;script=0"
+          />
+        </div>
+      </noscript>
+</body>
+
+</html>

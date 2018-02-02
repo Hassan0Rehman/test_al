@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
+    <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
+    <meta name='viewport' content='content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"' />
+
+    <title>
+        <%= title %>
+    </title>
+
+    <style>
+        <%- seriesCss %>
+    </style>
+</head>
+
+<body class="body">
+
+    <% include partials/header-mobile %>
+
+        <div align="center" class="no-display-add" style="padding-top:20px">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Responsive Leaderboard Ad -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3238745780396934" data-ad-slot="9021801800" data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="container-fluid mobile-content" data-attr-seriesid="<%= seriesId %>" style="padding: 0px;">
+
+            <div class="wrapper-outer">
+                <div class="wrapper-inner" data-attr-seriesid="<%= seriesId %>">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 box-padding-top-25">
+                            <h1 class="main-series-title no-margin padding-bottom-heading">
+                                <%= seriesTitle.replace(/-/g, ' ').replace(/%2D/g, '-') %>
+                            </h1>
+
+                            <%
+                                var a = "";
+                                if(seriesMatchs[0].test > 0){
+                                    a =  seriesMatchs[0].test + " Tests, "
+                                 } 
+                                if(seriesMatchs[0].oDI > 0){
+                                a += seriesMatchs[0].oDI + " ODIs, "
+                                    }  
+                                if(seriesMatchs[0].t20 > 0) { 
+                                     a += seriesMatchs[0].t20 + " T20s, "
+                                 }  
+                                if(seriesMatchs[0].t10 > 0){
+                                 a += seriesMatchs[0].t10 + " T10s, "
+                                 } 
+                                 a = a.trim();
+                                 a = a.substr(0, a.length - 1)
+                            %>
+
+                                <h2 class="main-series-detail no-margin">
+                                    <%= a %>
+                                </h2>
+                        </div>
+                    </div>
+
+
+                    <div class="outer-container">
+                        <div class="mobile-scorecard">
+                            <div class="icon-menu-bar tab">
+                                <div class="action-icons tablinks active" onclick="setTab.call(this, event, 'match-widget')">
+                                    <i class="icon-clock">C</i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-bookmark"></i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-monitor"></i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-users"></i>
+                                </div>
+                                <div class="action-icons tablinks" onclick="setTab.call(this, event, 'trending-articles')">
+                                    <i class="icon-chart-bar">T</i>
+                                </div>
+                            </div>
+                            <div class="mobile-score-widget">
+                                <div class="matches-widget">
+                                    <div class="mobile-match-details">
+                                        <div class="horizontal-slider tabcontent" id="match-widget">
+                                            <div class="match-info-wrapper">
+                                                <%- seriesWidgetTemplate %>
+                                            </div>
+                                        </div>
+                                        <div class="trending-articles-wrapper top-border-line tabcontent hide-default" id="trending-articles">
+                                            <%- trendingArticlesTemplate %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" id="Series-content" style="margin-top: 20px;padding: 0px;">
+                        <div class="right-column-box rankings-row">
+                            <%- trendingArticlesTemplate %>
+                        </div>
+
+
+                        <div id="team-squad">
+                            <%- seriesSquadTemplate %>
+                        </div>
+
+                        <div id="series-pools">
+                        </div>
+
+                        <div id="series-stat">
+                        </div>
+
+
+                        <div id="feature-article" style="padding: 3px">
+                        </div>
+
+                        <div id="homepage-content" class="margin-top-20">
+                            <%- seriesArticleTemplate %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <% include partials/footer-mobile %>
+
+            <!-- <link rel="preload" href="css/custom-bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="css/custom-bootstrap.css"></noscript> -->
+            <!-- TODO:: ADD CROSS BROWSER SUPPORT FOR PRELOAD -->
+
+            <!-- LOADING ESSENTIAL SCRIPTS FOR PAGE -->
+            <script rel="preload" as="script" src="/js/lib/jquery-3.1.1.min.js"></script>
+            <script rel="preload" as="script" src="/js/lib/bootstrap.min.js"></script>
+
+            <script src="/webpack/seriesPage.bundle.<%= jsChunk %>"></script>
+
+            <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 864160926;
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+            /* ]]> */
+            </script>
+            <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+            </script>
+            <noscript>
+                <div style="display: inline;">
+                    <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/864160926/?guid=ON&amp;script=0"
+                    />
+                </div>
+            </noscript>
+</body>
+
+</html>

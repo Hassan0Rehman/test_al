@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
+    <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="Article" />
+    <meta property="og:site_name" content="Cricingif" />
+    <meta property="fb:app_id" content="1536690803213439" />
+    <meta property="og:image" content="<%= linkPostUrl %>" />
+    <meta name="twitter:image" content="<%= linkPostUrl %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@_cricingif" />
+    <meta name="description" content="Read full story at www.cricingif.com/stories/<%= id %>>">
+    <meta property="og:title" content="<%= title %>>">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta property="og:url" content="https://www.cricingif.com/stories/<%= id %>/<%= url %>">
+    <link rel="canonical" href="https://www.cricingif.com/stories/<%= id %>/<%= url %>">
+    <meta property="og:description" content="Read full story at www.cricingif.com/stories/<%= id %>">
+    <meta name="twitter:description" content="Read full story at www.cricingif.com/stories/<%= id %>">
+
+
+    <!-- <link href="css/main.css" rel="stylesheet"/> -->
+    <style>
+        <%- myCss %>
+    </style>
+</head>
+
+<body class="body">
+
+    <% include partials/header-mobile %>
+
+        <div align="center" class="no-display-add" style="padding-top:20px">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Responsive Leaderboard Ad -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3238745780396934" data-ad-slot="9021801800" data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="container-fluid mobile-content">
+            <div class="wrapper-outer">
+                <div class="wrapper-inner">
+                    <div class="outer-container">
+                        <div class="mobile-scorecard">
+                            <div class="icon-menu-bar tab">
+                                <div class="action-icons tablinks active" onclick="setTab.call(this, event, 'match-widget')">
+                                    <i class="icon-clock">C</i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-bookmark"></i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-monitor"></i>
+                                </div>
+                                <div class="action-icons tablinks">
+                                    <i class="icon-users"></i>
+                                </div>
+                                <div class="action-icons tablinks" onclick="setTab.call(this, event, 'trending-articles')">
+                                    <i class="icon-chart-bar">T</i>
+                                </div>
+                            </div>
+                            <div class="mobile-score-widget">
+                                <div class="matches-widget">
+                                    <div class="mobile-match-details">
+                                        <div class="horizontal-slider tabcontent" id="match-widget">
+                                            <div class="match-info-wrapper">
+                                                <%- matchWidgetTemplate %>
+                                            </div>
+                                        </div>
+                                        <div class="trending-articles-wrapper top-border-line tabcontent hide-default" id="trending-articles">
+                                            <%- trendingArticlesTemplate %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homepage-content">
+                        <div class="news-inner-details-row">
+                            <div class="news-inner-details-content">
+                                <div class="upper-title">
+                                    <h2>
+                                        <%= seriesName %>
+                                    </h2>
+                                </div>
+                                <div class="main-question">
+                                    <h1>
+                                        <a href="/stories/<%= id %>/<%= url %>">
+                                            <%= title%>
+                                        </a>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="nid-content-wrapper">
+                                <!-- "POPULATED FROM ajax/share-widget FOLDER" -->
+                                <div id="share-widget"></div>
+
+                                <div class="writers-thumb-and-name">
+                                    <a id="link-blogger">
+                                        <div class="writers-thumb">
+                                            <img onerror="this.onerror=null;this.src='https://www.cricingif.com/Images/UserImages/0.png'" src="https://www.cricingif.com/Images/BloggerImages/<%= authorPicId %>.png"
+                                                id="blogger-pic" />
+                                        </div>
+                                        <div class="writers-name">
+                                            <p id="blogger-name">By
+                                                <%= authorName %>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="story-info" class="nid-text-container" data-attr-id="<%= id %>" data-attr-title="<%= title %>" data-attr-articletype="<%= articletype %>"
+                                    data-attr-url="<%= url %>">
+                                    <%- storyContentTemplate %>
+                                        <div class="tc-tags-and-shares">
+                                            <div class="tc-tags inline-block">
+                                                <% tags.forEach((tag, i) => { %>
+                                                    <span>#
+                                                        <%= tag %>
+                                                    </span>
+                                                    <% }); %>
+                                            </div>
+                                        </div>
+                                        <!-- <div id="vuukle-emote"></div>
+                                    <div id="vuukle_div"></div> -->
+                                        <div id="fb-article-comments" class="text-center">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <% include partials/footer-mobile %>
+
+            <!-- <link rel="preload" href="css/custom-bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="css/custom-bootstrap.css"></noscript> -->
+            <!-- TODO:: ADD CROSS BROWSER SUPPORT FOR PRELOAD -->
+
+            <!-- LOADING ESSENTIAL SCRIPTS FOR PAGE -->
+            <script rel="preload" as="script" src="/js/lib/jquery-3.1.1.min.js"></script>
+            <script rel="preload" as="script" src="/js/lib/bootstrap.min.js"></script>
+            <script rel="preload" as="script" src="https://platform.twitter.com/widgets.js"></script>
+            <script rel="preload" async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+            <script src="/webpack/storiesPage.bundle.<%= jsChunk %>"></script>
+
+            <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 864160926;
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+            /* ]]> */
+            </script>
+            <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+            </script>
+            <noscript>
+                <div style="display: inline;">
+                    <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/864160926/?guid=ON&amp;script=0"
+                    />
+                </div>
+            </noscript>
+</body>
+
+</html>

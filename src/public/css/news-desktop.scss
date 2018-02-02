@@ -1,0 +1,185 @@
+@import "lib/bootstrap/custom-bootstrap";
+@import "fontello-fonts/fontello";
+@import "fontello-fonts/fontello-codes";
+
+@import "themes/header/header-desktop";
+@import "themes/footer/footer";
+@import "cig-fonts";
+@import "common/scroller";
+@import "common/schedule-widget";
+@import "common/share-widget-news-desktop";
+@import "common/google-adds";
+@import "icons-sprite-sheet";
+@import "common/app-common";
+
+.top-border-line {
+    border-top: 1px solid rgba(0,0,0,.08)!important;
+
+    .rw-title {
+        font-size: .9em;
+        font-family: "poppins-semibold";
+        padding: 20px;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .tr-content {
+        padding: 20px;
+        font-size: 1em;
+
+        a {
+            color: #337ab7;
+            text-decoration: none;
+
+            &:hover {
+                color: black;
+                text-decoration: underline;
+            }
+            p {
+                font-family: "poppins-semibold";
+                margin: 0 0 10px;
+            }
+        }
+    }
+}
+
+.news-inner-details-row {
+    margin-top: 20px;
+    margin-right: 20px;
+    background: #fff;
+
+    .news-inner-details-content {
+        padding: 25px;
+
+        .upper-title h2 {
+            color: #a2c21b;
+            text-transform: uppercase;
+            font-size: .9em;
+            font-family: "poppins-semibold";
+            display: inline-block;
+            margin: 0 0 10px;
+            line-height: 18px;
+        }
+        .upper-title span {
+            float: right;
+            font-size: .9em;
+            display: inline-block;
+            color: #666;
+        }
+        .main-question {
+            h1 {
+                font-size: 2.2em;
+                color: #404040;
+                font-family: "poppins-semibold";
+                margin: 0 0 10px;
+                line-height: 1.42857143;
+
+                a {
+                    text-decoration: none;
+                    color: #666;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .nid-content-wrapper {
+        padding-bottom: 30px;
+        margin-right: 20px;
+        background: #fff;
+        position: relative;
+        .SocialMediaShareButton {
+            margin-top: 7px;
+        }
+
+        .nid-text-container {
+            font-size: 1.2em;
+            color: #666;
+            margin-left: 160px;
+            margin-right: 70px;
+
+            .image-markup-container {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            .pullquote-markup-container {
+                margin-top: 5px;
+                padding: 20px;
+                margin-bottom: 10px;
+                
+                .pullquote-text {
+                    border-left: 3px solid #c6e545;
+                    padding-left: 15px;
+                }
+            }
+
+           
+            
+
+            .tc-tags-and-shares {
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .inline-block {
+                    display: inline-block;
+                }
+                .tc-tags {
+                    margin-top: 30px;
+
+                    span {
+                        margin-top: 10px;
+                        font-family: "poppins-semibold";
+                        font-size: .7em;
+                        border-radius: 15px;
+                        padding: 5px 15px 5px 15px;
+                        background: #e7e7e7;
+                        margin-left: 5px;
+                        text-transform: uppercase;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .article-video {
+                margin-bottom: 10px;
+                width: 100%;
+                video {
+                    width: 100%;
+                    max-width: 600px;
+                }
+            }
+
+            #cms-content  {
+                p {
+                    font-size: 1em;
+                    line-height: 1.875;
+                }
+                img.article-img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+        .writers-thumb-and-name {
+            padding: 30px 70px 10px 70px;
+
+            .writers-thumb {
+                display: inline-block;
+                img {
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            }
+            .writers-name {
+                display: inline-block;
+                margin-left: 15px;
+
+                p {
+                    font-family: "poppins-semibold";
+                    color: #4d4d4d;
+                    margin: 0 0 10px;
+                }
+            }
+        }
+    }
+}

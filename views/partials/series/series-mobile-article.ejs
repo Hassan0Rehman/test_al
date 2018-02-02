@@ -1,0 +1,121 @@
+<%if(topArticle.length > 0){ %>
+    <div class="no-margin-left no-padding">
+        <div id="headline-article no-padding-left blogs-hm-section-one">
+            <div class="wrapper margin-bottom-20 ">
+                <a class="main-article-trigger" href="/news/<%= topArticle[0].Id %>/<%= topArticle.Url %>">
+                    <div class="sixteen-by-nine">
+                        <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= topArticle[0].Id %>.jpg" width="100%" />
+                    </div>
+                </a>
+                <div class="content" style="top: auto;">
+                    <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
+                        <div style="position:absolute;bottom:10px; width:100%">
+                            <div class="blog-overlay-sub-title">
+                                <p class="inline">
+                                    <%= topArticle[0].HeadTitle %>
+                                </p>
+                                <p class="inline blog-duration-hm"></p>
+                            </div>
+                            <div class="blog-overlay-title blog-overlay-title-hm" style="height:auto; margin-left: 15px; line-height: 1.1;">
+                                <h2 class="inline">
+                                    <a class="article-title-link main-article-trigger" href="/news/<%= topArticle[0].Id %>/<%= topArticle[0].url %>">
+                                        <%= topArticle[0].Title %>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="bl-overlay-match-details" id="article-headliner">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }else{ %>
+        <div class="no-margin-left no-padding">
+            <div id="headline-article" class="col-md-12 no-padding-left blogs-hm-section-one">
+                <div class="login-container-right">
+                    <p>No News Coverage Yet</p>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+        <div class="no-margin-left no-padding col-sm-12 col-xs-12">
+            <% if(articles.length > 0){
+                for(var j = 0; j < articles.length; j++) {
+            var first = articles[j][0];
+            var second = articles[j][1];
+            %>
+            <% if(first != undefined ) { %>
+                <div class="no-padding col-sm-6 col-xs-6">
+                    <a href="/news/<%= first.Id %>/<%= first.Url %>">
+                        <div class="news-sm-block" style="width: 100%;">
+                            <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
+                                <div class="wrapper" href="/news/<%= first.Id %>/<%= first.Url %>" style="height: 100px;">
+                                    <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= first.Id %>.jpg" width="100%" height="100%" />
+                                </div>
+                                <div class="news-sm-content-wrapper series-sm-content-wrapper">
+                                    <div class="news-main-title">
+                                        <div class="  main-news-link inline-block series-head-title-text">
+                                            <div class="Series-Col-Articles captial-text">
+                                                <%= first.HeadTitle %>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="news-sub-title">
+                                        <div class="Series-Col-Articles">
+                                            <%=  first.Title %>
+                                        </div>
+                                    </div>
+                                    <div class="news-copy-text">
+                                        <p class="copy-text">
+                                            <%= first.Excerpt %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+                <% } if(second != undefined ) { %>
+
+                <div class="no-padding col-sm-6 col-xs-6">
+                    <a href="/news/<%= second.Id %>/<%= second.Url %>">
+                        <div class="news-sm-block" style="width: 100%;">
+                            <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
+                                <div class="wrapper" href="/news/<%= second.Id %>/<%= second.Url %>" style="height: 100px;">
+                                    <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= second.Id %>.jpg" width="100%" height="100%" />
+                                </div>
+                                <div class="news-sm-content-wrapper series-sm-content-wrapper">
+                                    <div class="news-main-title">
+                                        <div class="  main-news-link inline-block series-head-title-text">
+                                            <div class="Series-Col-Articles captial-text">
+                                                <%= second.HeadTitle %>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="news-sub-title">
+                                        <div class="Series-Col-Articles">
+                                            <%=  second.Title %>
+                                        </div>
+                                    </div>
+                                    <div class="news-copy-text">
+                                        <p class="copy-text">
+                                            <%=  second.Excerpt %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            <% } 
+        }
+    }%>
+</div>

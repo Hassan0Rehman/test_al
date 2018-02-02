@@ -1,0 +1,59 @@
+<div class="hm-lt-row row no-margin-left hide-xs-screen padding-right-20 ">
+    <h2 class="top-article-header">
+        <a style="color:#a5c715;" href="/series/<%= articles[0].mi %>/<%= articles[0].mt %>">
+            <p class="inline"><%= articles[0].mt %></p>
+        </a>
+        <p class="inline pull-right"></p>
+    </h2>
+    <div class="col-md-8 col-sm-8 col-xs-12 no-padding-left blogs-hm-section-one no-padding-right">
+        <div class="wrapper">
+            <a href="/news/<%= articles[0].Id %>/<%= articles[0].u %>">
+                <div class="sixteen-by-nine"></div>
+            </a>
+            <div class="content" style="top: auto;">
+                <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
+                    <div style="position:absolute;bottom:10px; width:100%">
+                        <div class="blog-overlay-title blog-overlay-title-hm" style="height: auto;">
+                            <h3 class="inline">
+                                <a class="article-title-link" href="/news/<%= articles[0].Id %>/<%= articles[0].u %>">
+                                <%= articles[0].t %>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="bl-overlay-match-details">
+                            <a href="/match/<%= articles[0].mi %>">
+                                <p>
+                                Upcoming<span style="color: white;"></span>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 blogs-hm-section-two no-padding-all">
+        <% for(var i = 1; i <= 2; i++) {%>
+            <div class="col-md-12 col-sm-12 col-xs-6 bl-sm-two no-margin-top">
+                <div class="wrapper">
+                    <a href="/news/<%= articles[i].Id %>/<%= articles[i].u %>">
+                        <div class="sixteen-by-nine"></div>
+                    </a>
+                    <div class="content" style="top:auto;">
+                        <div class="blog-pic-overlay blog-pic-overlay-hm-sm" style="position:relative;vertical-align:bottom;">
+                            <div style="position:absolute;bottom:10px; width:100%">
+                                <div class="blog-overlay-title blog-overlay-title-hm-sm" style="height:auto;">
+                                    <p class="inline">
+                                        <a class="article-title-link" href="/news/<%= articles[i].Id %>/<%= articles[i].u %>">
+                                        <%= articles[i].t %>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>    
+</div>

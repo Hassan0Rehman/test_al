@@ -1,0 +1,37 @@
+@import "themes/header/header-mobile";
+@import "themes/footer/footer-mobile";
+@import "common/schedule-widget";
+@import "common/articles";
+@import "cig-fonts";
+@import "icons-sprite-sheet";
+@import "common/app-common";
+@import "common/mobile-menu";
+@import "common/c-bootstrap";
+@import "common/tabs";
+
+.mobile-content {
+    margin-top: 105px;
+
+    .wrapper-outer {
+        background: #f4f4f4;
+
+        .wrapper-inner {
+            max-width: 1260px;
+            height: 100%;
+            margin: 0 auto;
+
+            .outer-container {
+                width: 100%;
+
+
+                .hm-inner-content-s4 {
+                    p {
+                    margin-top: 10px;
+                    font-family: "poppins-semibold";
+                    font-size: .8em;
+                }
+            }
+            }
+        }
+    }
+}

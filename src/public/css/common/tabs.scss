@@ -1,0 +1,32 @@
+.tabcontent.hide-default {
+    display: none;
+}
+
+.icon-menu-bar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: none;
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1em;
+
+    .action-icons {
+        font-family: "poppins-regular";
+        width: 18.5%;
+        display: inline-block;
+        text-align: center;
+
+        &.active {
+            i {
+                color: #c6e545;                                
+            }
+        }
+
+        i {
+            color: #cecece;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+    }
+}

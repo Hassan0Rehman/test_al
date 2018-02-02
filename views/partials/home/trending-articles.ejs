@@ -1,0 +1,20 @@
+<div class="trending-widget top-border-line no-display" style="display: block;">
+  <% if (trendingArticles) { %>
+    <div class="rw-title">
+        <p class="no-margin-bottom" style="margin: 0"> Trending </p>
+    </div>
+    <div class="tr-content trendings">            
+        <% trendingArticles.map((article, i) => { %>
+            <% if (article.ty === 5) { %>
+                <a href="/stories/<%= article.id %>/<%= article.t.replace(/ /g, '-') %>">
+                    <p><%= article.t %></p>
+                </a>
+            <% } else { %>
+                <a href="/news/<%= article.id %>/<%= article.t.replace(/ /g, '-') %>">
+                    <p><%= article.t %></p>
+                </a>
+                <% } %>
+        <% }); %>
+    </div>
+  <% } %>
+</div>

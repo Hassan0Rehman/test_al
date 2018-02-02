@@ -1,0 +1,116 @@
+<div class="articles-list">
+    <% for(var i = 0; i < articles.length; i++) { %>
+        <div class="article-content">
+            <h2 class="top-article-header">
+                <a style="color:#a5c715;" href="/series/<%= articles[i][0].matchId %>/<%= articles[i][0].matchTitle %>">
+                    <p class="inline"><%= articles[i][0].matchTitle %></p>
+                </a>
+                <p class="pull-right" style="margin: 0px; float: right; padding-right: 8px">
+                        <% var publishDate = new Date(articles[i][0].publishDate); %>
+                        <% var date = new Date(); %>
+                        <% var hours = Math.abs(date - publishDate) / 36e5; %>
+                        <% if (hours <= 1) { %>
+                            <%= "just now" %>
+                        <% } else if (hours > 1 && hours <= 23) { %>
+                            <%= Math.floor(hours) + "h" %>
+                        <% } else if (hours > 23) { %>
+                            <%= "" %>
+                        <% } %>
+                </p>
+            </h2>
+            <div class="article-text-wrapper">
+                <% if (i % 2 !== 0) { %>
+                    <div class="article-image">
+                        <div class="wrapper">
+                            <a href="/match/<%= articles[i][0].matchId %>">
+                                <div class="four-by-five"
+                                style="background:url('<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg'), url('/images/placeholder.png');"></div>
+                                <div class="content"></div>
+                            </a>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="article-text-titles">
+                    <div class="wrapper">
+                        <div class="four-by-five-content"></div> 
+                        <div class="content">
+                            <div class="title-heading">
+                                <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
+                                    <div><%= articles[i][0].seriesTitle %></div>
+                                </a>
+                            </div>
+                            <div class="hm-inner-content-s4 bl-overlay-match-details"   
+                                id="article-headliner-<%= articles[i][0].matchId %>" 
+                                series-attr-id="<%= articles[i][0].matchId %>">
+                            </div>
+                            <div class="sub-article-section">
+                                <div class="sub-article">
+                                    <a href="/match/<%= articles[i][1].matchId %>">
+                                        <div class="sub-article-sm-img" 
+                                        style="background:url('<%= imageUrl %>/1/<%= articles[i][1].id %>.jpg'), url('/images/placeholder.png');"></div>
+                                    </a>
+                                    <div class="sub-article-sm-text">
+                                        <a href="/match/<%= articles[i][1].matchId %>">
+                                            <%= articles[i][1].seriesTitle %>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="sub-article">
+                                    <a href="/match/<%= articles[i][1].matchId %>">
+                                        <div class="sub-article-sm-img" 
+                                        style="background:url('<%= imageUrl %>/1/<%= articles[i][2].id %>.jpg'), url('/images/placeholder.png');"></div>
+                                    </a>
+                                    <div class="sub-article-sm-text">
+                                        <a href="/match/<%= articles[i][1].matchId %>">
+                                            <%= articles[i][2].seriesTitle %>
+                                        </a>
+                                    </div>
+                                </div>    
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% if (i % 2 === 0) { %>
+                    <div class="article-image">
+                        <div class="wrapper">
+                            <a href="/match/<%= articles[i][0].matchId %>">
+                                <div class="four-by-five"
+                                style="background:url('<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg'), url('/images/placeholder.png');"></div>
+                                <div class="content"></div>
+                            </a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>   
+    <% } %>
+    <h2 class="top-article-header"><a><p>Featured Articles</p></a></h2>
+    <% for(var i = 0; i < featuredArticles.length; i++) {%>
+        <div class="featured-article-detail">
+            <a href="/news/<%= featuredArticles[i].id %>/<%= featuredArticles[i].link %>">
+                <div class="wrapper">
+                    <div class="four-by-five" style="background:url('<%= imageUrl %>/0.86/<%= featuredArticles[i].id %>.jpg'), url('/Images/placeholder.png');"></div>
+                    <div class="content">
+                        <div class="blog-pic-overlay">
+                            <div class="blog-pic-overlay-wrapper">
+                                <div class="blog-overlay-tag"><%= featuredArticles[i].heading %></div>
+                                <div class="blog-overlay-title"><%= featuredArticles[i].title %></div>
+                                <div class="featured-article-desc-row">
+                                    <div class="author-details">
+                                        <img class="inline rounded" width="30" height="30" src="https://d7d7wuk1a7yus.cloudfront.net/blogger-images/<%= featuredArticles[i].bloggerImage %>.png">
+                                        <p class="inline author-name"><%= featuredArticles[i].bloggerName %></p>
+                                    </div>
+                                    <div class="blog-time-and-comments blog-time-and-comments-sm pull-right inline-block">
+                                        <i class="inline fa fa-comments-o"></i>                                    
+                                        <p class="inline"><%= featuredArticles[i].comments %></p>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <% } %>
+</div>
