@@ -5,7 +5,7 @@ import OverDetail from '../over-detail/OverDetail';
 import { Scrollbars } from 'react-custom-scrollbars';
 import shortScoreCardService from '../../match-page/pusher-service/short-scorecard';
 import * as _ from 'lodash';
-import { setTimeout } from 'timers';
+// import { setTimeout } from 'timers';
 
 class BallByBallApp extends Component {
   constructor(props) {
@@ -18,8 +18,7 @@ class BallByBallApp extends Component {
     };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   componentWillMount() {
     const innings = JSON.parse(this.props.allInnings);
@@ -40,11 +39,17 @@ class BallByBallApp extends Component {
     if (_.get(lastOver[lastOver.length - 1], 'bn') !== "6") {
         _allBalls[_allBalls.length - 1].push(ballDescription);
         const _selectedOver = _.clone(self.state.selectedOver, true);
-        _selectedOver.push(ballDetail);
-        self.setState({
-            allBalls: _allBalls,
-            selectedOver: _selectedOver
-        });
+        if (_.get(ballDescription, 'on') === _.get(_selectedOver[0], 'on')) {
+            _selectedOver.push(ballDetail);
+            self.setState({
+                allBalls: _allBalls,
+                selectedOver: _selectedOver
+            });
+        } else {
+            self.setState({
+                allBalls: _allBalls
+            });
+        }
     } else {
         _allBalls.push([ballDescription]);
         self.setState({
@@ -84,7 +89,6 @@ class BallByBallApp extends Component {
                     return _.filter(balls, {on: over.on});
                 });
                 if (_allBalls.length > 0) {
-                    console.log('all balls', self.orderOvers(_allBalls));
                     self.setState({
                         allBalls: self.orderOvers(_allBalls),
                         selectedInnings: innings,
@@ -126,18 +130,18 @@ class BallByBallApp extends Component {
   handleScroll() {}
 
   setPlayList(overNumber, ballNumber, ballId) {
-    let currentOver = [];
-    _.each(this.state.allBalls[overNumber], function(ball, i) {
-        if (i >= ballNumber) currentOver.push(ball);
-    });
-    let commingOvers = this.state.allBalls.slice(overNumber + 1);
-    commingOvers.unshift(currentOver);
+    // let currentOver = [];
+    // _.each(this.state.allBalls[overNumber], function(ball, i) {
+    //     if (i >= ballNumber) currentOver.push(ball);
+    // });
+    // let commingOvers = this.state.allBalls.slice(overNumber + 1);
+    // commingOvers.unshift(currentOver);
+    const commingOvers = [[this.state.allBalls[overNumber][ballNumber]]];
     const ballsPlaylist = _.flattenDeep(_.map(commingOvers, function(over, oi) {
         return _.map(over, function(ball, bi) {
             return ball.Id;
         })   
     }));
-    debugger;  
     return ballsPlaylist
   }
 
@@ -175,11 +179,12 @@ class BallByBallApp extends Component {
                     <div className="inning-title">Innings</div>
                     <Select
                         name="form-field-name"
-                        className="inning-selection"
+                        className="inning-selection needsclick"
                         value={ this.state.selectedInnings }
                         onChange={ this.handleChange.bind(this) }
                         optionClassName="inning-option"
                         options={ options }
+                        searchable={ false }
                     />
                 </div>
             </div>
@@ -192,6 +197,12 @@ class BallByBallApp extends Component {
                     renderThumbHorizontal={props => <div {...props} className="thumb-horizontal"/>}
                     renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}
                     renderView={props => <div {...props} className="horizontal-slider-area"/>}
+                    onWheel={ function(event) {
+                            var list = event.currentTarget.firstChild; 
+                            var delta = (event.deltaX == 0 ? event.deltaY : event.deltaX); 
+                            list.scrollLeft += delta; event.preventDefault(); 
+                        }
+                    }
                     ref="scrollbars">
                     {allOvers.map((over, overNumber) => {
                         return (
@@ -203,10 +214,10 @@ class BallByBallApp extends Component {
                                 <div className="over-row" name={ (overNumber + 1).toString() }>
                                     {over.map((ball, ballIndex) => {
                                         return (
-                                            <div className={"over-ball " + this.getClass(ball.s)} 
+                                            <div className={"over-ball " + this.getClass(ball.s || ball.sc)} 
                                                 key={ ballIndex + '' + overNumber }
                                                 onClick={ () => this.setState({ playBallVideo: this.setPlayList(overNumber, ballIndex, ball.Id) }) }>
-                                                { ball.s || ball.sc}
+                                                { ball.s || ball.sc }
                                             </div>
                                         );
                                     })}

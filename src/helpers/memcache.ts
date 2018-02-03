@@ -29,6 +29,7 @@ function delKey(key: string) {
 const cache = (key: string, duration: any) => {
   return (req: any, res: any, next: any) => {
     let _key = ""; const _userAgent = useragentMiddleware.default.getDevice();
+    console.log("FROM CACHE --- : --- : " + _userAgent);
     if (_userAgent === supportedDevices.index.desktop) {
       _key = key + "-isDesktop";
     }

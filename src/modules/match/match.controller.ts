@@ -60,26 +60,33 @@ export let index = (req: Request & { useragent: any }, res: Response) => {
           myCss: _css,
           matchOverviewTemplate: results[0],
           scoreCard: results[1],
-          videoStreamUrl: results[1].smallScorecard.strh,
-          matchState: results[1].smallScorecard.ms,
+          videoStreamUrl: _.get(results[1].smallScorecard, "strh"),
+          matchState: _.get(results[1].smallScorecard, "ms"),
           matchId: matchId,
-          closingComment: results[1].closingComment,
+          closingComment: _.get(results[1], "closingComment"),
           allInnings: JSON.stringify(results[1].allInns),
           jsChunk: serverPathHelper.default.getJsChunk(),
           allowVideo: userRegion.default.allowVideo(req.cookies, results[1].sst),
-          allowGif: userRegion.default.allowVideo(req.cookies, results[1].sct)
+          allowGif: userRegion.default.allowVideo(req.cookies, results[1].sct),
+          matchTime: _.get(results[1].smallScorecard, "mti"),
+          matchLocation: _.get(results[1].smallScorecard, "ml")
         };
-        if (_userAgent === supportedDevices.index.desktop) {
+        if (_userAgent === supportedDevices.index.mobile) {
+          // const renderedHtml = homeParser.getMobileHomePage(obj);
+          // res.send(renderedHtml);
+          res.render("match-mobile.ejs", obj);
+          console.log("END", new Date());
+          return;
+        } else if (_userAgent === supportedDevices.index.desktop) {
           // const renderedHtml = homeParser.getHomePage(obj);
           // res.send(renderedHtml);
           res.render("match-desktop.ejs", obj);
           console.log("END", new Date());
           return;
-        }
-        if (_userAgent === supportedDevices.index.mobile) {
-          // const renderedHtml = homeParser.getMobileHomePage(obj);
+        } else {
+          // const renderedHtml = homeParser.getHomePage(obj);
           // res.send(renderedHtml);
-          res.render("match-mobile.ejs", obj);
+          res.render("match-desktop.ejs", obj);
           console.log("END", new Date());
           return;
         }

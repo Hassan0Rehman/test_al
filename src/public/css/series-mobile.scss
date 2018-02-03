@@ -1,8 +1,7 @@
+@import "lib/bootstrap/custom-bootstrap";
 @import "themes/header/header-mobile";
 @import "themes/footer/footer-mobile";
 @import "common/schedule-widget";
-@import "common/articles";
-@import "lib/bootstrap/custom-bootstrap";
 @import "cig-fonts";
 @import "icons-sprite-sheet";
 @import "common/app-common";
@@ -16,6 +15,40 @@
 
     .no-padding {
         padding: 0!important;
+    }
+
+    #loadMore{
+        padding-bottom: 30px;
+        padding-top: 5px;
+        text-align: center;
+        width: 100%;
+        a{
+            background: #333;
+            border-radius: 3px;
+            color: white;
+            display: inline-block;
+            padding: 10px 30px;
+            transition: all 0.25s ease-out;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    .completed-text{
+        font-size: 0.8em !important;
+    }
+    .match-score-inner-edit {
+        min-height: 110px !important;
+    }
+    .match-headline{
+        p {
+            font-size: .8em !important;
+        }
+    }
+    .score-and-overs{
+        font-size: 10px !important;
+    }
+    .match-container{
+        line-height: 1.7 !important;
     }
 
     .no-margin{
@@ -33,15 +66,23 @@
         float: right
     }
 
+    .no-squad-response{
+        padding-top: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #aaa;
+        text-align: center;
+    }
+
     .login-container-right {
         padding: 30px;
         text-align: center;
-        margin-top: 40%;
     }
 
     .box-padding-top-25 {
          line-height: 1.2;
          padding-top: 25px;
+         padding-bottom: 20px;
          
         .main-series-title {
             font-size: 24px;
@@ -77,7 +118,7 @@
         }
     
         .blogs-hm-section-two {
-            padding-bottom: 20px;
+            // padding-bottom: 20px;
             
             .wrapper{
                 position: relative;
@@ -184,6 +225,7 @@
             .copy-text {
                 font-size: 1em!important;
                 color: #666;
+                
     
                 .no-margin-bottom {
                     margin-bottom: 0!important;
@@ -207,7 +249,7 @@
                 z-index: 1000;
                 float: left;
                 min-width: 160px;
-                padding: 5px 0;
+                padding: 0;
                 margin: 2px 0 0;
                 font-size: 14px;
                 text-align: left;
@@ -283,6 +325,7 @@
             .copy-text{
                 font-size: 1em!important;
                 color: #666;
+                padding-top: 10px;
             }
     
             .teams-table {
@@ -456,7 +499,7 @@
 
         .news-sm-block {
             padding: 3px;
-            margin-top: 20px;
+            margin-top: 5px;
     
             .news-sm-content-wrapper 
                 {

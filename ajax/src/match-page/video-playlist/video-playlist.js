@@ -1,9 +1,11 @@
 
+let player = null;
 function createPlaylist(videos) {
-    if (window.videojs) {
-        const player = window.videojs('bllbyball-clips');
-        player.playlist(videos);
-        player.playlist.autoadvance(0);
+    if (window.videojs && document.getElementById('bllbyball-clips')) {
+        if (!player) {
+            player = window.videojs('bllbyball-clips');
+        }
+        player.playlist && player.playlist(videos) && player.playlist.first();
     }
 }
 

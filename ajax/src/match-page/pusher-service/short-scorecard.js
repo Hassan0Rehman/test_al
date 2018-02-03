@@ -3,7 +3,6 @@ import Pusher from 'pusher-js';
 var channel = null;
 
 function setChannel(matchId) {
-    debugger;    
     var pusher = new Pusher('dc33ee6aa59a37861727', {
         cluster: 'ap2',
         encrypted: true

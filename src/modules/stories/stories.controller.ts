@@ -45,8 +45,7 @@ export let index = (req: Request, res: Response) => {
   console.log("START", new Date());
   const storyId = _.parseInt(_.get(req, "params.id"));
   if (storyId) {
-    Promise.all([getTemplate("scheduleWidget", null, req), getTemplate("stories", storyId, req),
-                getTemplate("trendingArticles", null, req)])
+    Promise.all([getTemplate("scheduleWidget", null, req), getTemplate("stories", storyId, req)])
     .then(function(results: any) {
         const _userAgent = useragentMiddleware.default.getDevice();
         const _css = _userAgent === supportedDevices.index.desktop ? storiesParser.getCss().style : storiesParser.getMobileCss().style;
@@ -65,7 +64,6 @@ export let index = (req: Request, res: Response) => {
           articletype: results[1].article_type,
           linkPostUrl: results[1].linkPostUrl,
           trendingArticlesTemplate: results[2],
-          userRegion: req.cookies.region,
           jsChunk: serverPathHelper.default.getJsChunk()
         };
         if (_userAgent === supportedDevices.index.desktop) {
@@ -76,8 +74,8 @@ export let index = (req: Request, res: Response) => {
           }
           res.render("stories-desktop.ejs", obj);
           console.log("END", new Date());
-        }
-        if (_userAgent === supportedDevices.index.mobile) {
+          return;
+        } else if (_userAgent === supportedDevices.index.mobile) {
           // const renderedHtml = storiesParser.getMobileStoriesPage(obj);
           // res.send(renderedHtml);
           if (obj.linkPostUrl === null || obj.linkPostUrl === "") {
@@ -85,6 +83,16 @@ export let index = (req: Request, res: Response) => {
           }
           res.render("stories-mobile.ejs", obj);
           console.log("END", new Date());
+          return;
+        } else {
+          // const renderedHtml = storiesParser.getMobileStoriesPage(obj);
+          // res.send(renderedHtml);
+          if (obj.linkPostUrl === null || obj.linkPostUrl === "") {
+            obj.linkPostUrl = "https://d7d7wuk1a7yus.cloudfront.net/static-assets/logo.png";
+          }
+          res.render("stories-mobile.ejs", obj);
+          console.log("END", new Date());
+          return;
         }
     });
   }

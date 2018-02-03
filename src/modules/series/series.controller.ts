@@ -49,12 +49,12 @@ export let index = (req: Request & { useragent: any }, res: Response) => {
   const seriesId = _.parseInt(_.get(req, "params.id"));
   const  url = _.get(req, "params.title");
   Promise.all([getTemplate("seriesWidget", seriesId), getTemplate("seriesPage-article", seriesId),
-   getTemplate("trendingArticles", null), getTemplate("seriesSquad", seriesId)])
+  getTemplate("trendingArticles", null), getTemplate("seriesSquad", seriesId)])
     .then(function (results) {
+      // getTemplate("trendingArticles", null)
       const _userAgent = useragentMiddleware.default.getDevice();
       const _css = _userAgent === supportedDevices.index.desktop ? seriesParser.getCss().style : seriesParser.getMobileCss().style;
       const outerHtmlElement: any = results[0];
-      // url = url.split("/")[3].replace("-", "");
       const obj = {
         title: "Series | Cricingif",
         seriesCss: _css,
@@ -72,9 +72,12 @@ export let index = (req: Request & { useragent: any }, res: Response) => {
         res.render("series-desktop.ejs", obj);
         console.log("END", new Date());
         return;
-      }
-      if (_userAgent === supportedDevices.index.mobile) {
+      } else if (_userAgent === supportedDevices.index.mobile) {
         res.render("series-mobile.ejs", obj);
+        console.log("END", new Date());
+        return;
+      } else {
+        res.render("series-desktop.ejs", obj);
         console.log("END", new Date());
         return;
       }

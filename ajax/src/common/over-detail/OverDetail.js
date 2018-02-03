@@ -120,12 +120,8 @@ class OverDetailApp extends Component {
             poster: ''
         };
     });
-    // const streamPlayer = document.getElementById('stream-video');
-    // streamPlayer && streamPlayer.classList.add('hide-video');
-    // const vidoElem = document.getElementById('bllbyball-clips');
-    // vidoElem.classList.remove('hide-video');
-    debugger;    
     videoPlaylistService.createPlaylist(videos);
+    
     // const selectedBalls = _.takeRightWhile(this.state.overDetail, {Id: ballId});
     // const videoLink = selectedBall.glh;
     // const ballNumber = selectedBall.on + "." + selectedBall.bn;
@@ -144,29 +140,35 @@ class OverDetailApp extends Component {
     console.log("over detail", this.state.overDetail);
     if (_.isEmpty(this.state.overDetail)) return null;
     
+    const isDesktop = window.innerWidth >= 767;
     return (
         <div className="over-detail-comp">
             {this.state.overDetail.map((ball, ballIndex) => {
                 let isGif = ball.visibleGif ? ball.gll : ball.gsl;
                 isGif = isGif === '' ? 'https://d7d7wuk1a7yus.cloudfront.net/static-assets/placeholder.png' : isGif;
                 if (!__allowedGif) {
-                    return(
+                    return (
                         <div className="ball-detail" key={ballIndex}>
                             <div className="ball-data">
-                                <div className="ball-num">{ ball.on + '.' + ball.bn}</div>                        
-                                <div>
-                                    <div>bowler to batsman</div>
+                                <div className="ball-num-mob">
+                                    <div className="ball-num">{ ball.on + '.' + ball.bn}</div>
+                                    { !isDesktop && <div>bowler to batsman</div> }
+                                </div>
+                                <div className="ball-num-desk">
+                                    { isDesktop && <div>bowler to batsman</div> }
                                     <div>{ ball.co }</div>
                                 </div>
                             </div>
-                            <div className={"over-ball " + this.getClass(ball.s)}>{ ball.s || ball.sc }</div>
+                            <div className={"over-ball " + this.getClass(ball.s || ball.sc)}>
+                                { ball.s || ball.sc }
+                            </div>
                         </div>
                     );
                 } else {
                     return (
-                        <div className="ball-detail" key={ballIndex}>
+                        <div className="ball-detail" key={ ballIndex }>
                             <div className="ball-gif-cover" 
-                                onClick={() => this.toggleGif(ball, ballIndex) }
+                                onClick={ () => this.toggleGif(ball, ballIndex) }
                                 style={{ backgroundImage: 'url(' + isGif + ')' }}>
                                 {!ball.visibleGif && <img className="gif-icon" src="https://d7d7wuk1a7yus.cloudfront.net/static-assets/gif_icon.png" />}
                             </div>

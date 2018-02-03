@@ -53,6 +53,28 @@
         .hide-mobile-screen {
             display: none;
         }
+
+        .match-container {
+            width: 270px;
+        }
+        .flag-and-name {
+            span {
+                font-size: 1.1em !important;
+            }
+        }
+        .score-and-overs-container {
+            .score-and-overs {   
+                font-size: 10px !important;
+            }
+        }
+        .match-headline {
+            p {
+                font-size: .7em !important;
+            }
+        }
+        .match-score-inner-edit {
+            min-height: 85px !important;
+        }
     }
     .recently-finished {
         @media (max-width: 767px) {
@@ -79,13 +101,13 @@
                 padding-top: 5px;
             }
             .completed-text {
-                font-size: .8em;
+                font-size: .7em;
                 color: #000;
                 text-transform: uppercase;
             }
             .match-score-inner-edit {
                 padding: 15px;
-                min-height: 100px;
+                min-height: 110px;
                 border-bottom: 1px solid rgba(199,230,68,.11)!important;
 
 
@@ -161,10 +183,10 @@
                         }
                         .score-and-overs {
                             margin-top: 5px;
-                            // font-size: 12px;
+                            font-size: 12px;
                             color: #666;
                             margin-bottom: 0!important;
-                            font-size: 0.7em;
+                            // font-size: 0.7em;
                         }
                         .currently-playing-arrow {
                             width: 0;

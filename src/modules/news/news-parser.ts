@@ -30,12 +30,12 @@ function htmlToString(partialName: string, response: any, req: Request) {
         _formattedResponse = mapper.default.map(partialName, response);
         const _srcString = _formattedResponse.description.replace(/\n/g, " ");
         const finalString = articleTextHelper.default.resolve_Iframe_Blockqoute(_srcString);
-        // const region = userRegion.default.getRegion();
+        const region = JSON.parse(_.get(req.cookies, "cig-location"));
         _data = {
             srcString: finalString,
             tagsStartIndices: articleTextHelper.default.getIndicesOf("{{", finalString),
             tagsEndIndices: articleTextHelper.default.getIndicesOf("}}", finalString),
-            userRegion: req.cookies.region
+            userRegion: _.get(region, "country_code")
         };
         const _viewPath = path.join(serverPathHelper.default.get().serverPath, serverPathHelper.default.get().viewsPath + "/partials/news/news-content.ejs");
         let _obj = {

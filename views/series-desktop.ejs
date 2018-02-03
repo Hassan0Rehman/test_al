@@ -68,12 +68,147 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-8 col-md-6" id="Series-content" style="padding-left: 10px; margin-top: 20px;">
-                        <div id="homepage-content" class="margin-top-20">
-                            <%- seriesArticleTemplate %>
+                        <div id="temp-series-article">
+                            <div id="homepage-content" class="margin-top-20">
+                                <%- seriesArticleTemplate %>
+                            </div>
+                        </div>
+                        <div id="series-article">
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-3 no-padding right-outer-container float-right-block" style="padding-left: 10px;">
+
+                        <div id="series-pools-temp" style="padding: 20px 20px 20px 0px;">
+                            <div class="right-column">
+                                <div class="inline-block">
+                                    <div class="detail-text">
+                                        <p class="no-margin-bottom">
+                                            POINTS TABLE
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="inline-block pull-right">
+                                    <div class="dropdown">
+                                        <div class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                                            <div class="three-dots"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="pool-points-table-container" class="no-margin-top">
+                                    <table class="most-wickets teams-table">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="runs-weight">Teams</th>
+                                                <th>P</th>
+                                                <th>W</th>
+                                                <th>L</th>
+                                                <th>D</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="team-flag">
+                                                    <div class="team-row">
+                                                        <div class="team-row-flag-default float-left">
+                                                            <img height="30" width="30" src="https://www.cricingif.com/Images/placeholder.png" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="team-flag">
+                                                    <div class="team-row">
+                                                        <div class="team-row-flag-default float-left">
+                                                            <img height="30" width="30" src="https://www.cricingif.com/Images/placeholder.png" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <div id="series-pools" style="padding: 20px 20px 20px 0px;">
+                        </div>
+
+                        <div id="series-stat-temp" style="padding: 0px 20px 20px 0px;">
+                            <div class="right-column">
+                                <div class="inline-block">
+                                    <div class="detail-text">
+                                        <p class="no-margin-bottom">
+                                            STATS
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="inline-block pull-right">
+                                    <div class="dropdown">
+                                        <div class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                                            <div class="three-dots"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="stat-points-table-container" class="no-margin-top">
+                                    <div class="copy-text">
+                                        <p id="series-points-title" class="no-margin-bottom"></p>
+                                    </div>
+                                    <table class="teams-table stat-points-table">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="runs-weight width-150">Most Runs</th>
+                                                <th>Runs</th>
+                                                <th class="padding-left-8">SR</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="player-row">
+                                                    <div class="player-pic">
+                                                        <img class="rounded" height="30" width="30" src="https://d7d7wuk1a7yus.cloudfront.net/user-images/0.png" />
+                                                    </div>
+                                                    <div>
+                                                        <div class="player-name"></div>
+                                                        <div class="player-description"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="team-row-runs"></td>
+                                                <td class="team-row-sr padding-left-8"></td>
+                                            </tr>
+                                        </tbody>
+                                        <thead class="">
+                                            <tr>
+                                                <th class="runs-weight width-150" style="padding-top: 15px">Most Wickets</th>
+                                                <th style="padding-top:15px">WKTS</th>
+                                                <th class="padding-left-8" style="padding-top: 15px">ECON</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="player-row">
+                                                    <div class="player-pic">
+                                                        <img class="rounded" height="30" width="30" src="https://d7d7wuk1a7yus.cloudfront.net/user-images/0.png" />
+                                                    </div>
+                                                    <div>
+                                                        <div class="player-name"></div>
+                                                        <div class="player-description"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="team-row-runs"></td>
+                                                <td class="team-row-sr padding-left-8"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                         <div id="series-stat" style="padding: 0px 20px 20px 0px;">
@@ -85,38 +220,9 @@
 
                     <div class="col-md-3 col-sm-4 hide-xs-screen no-padding right-outer-container" style="padding-left: 0px; padding-right: 10px;">
                         <div class="scorecard-menu right-column-box hide-xs-screen">
-                            <ul class="nav nav-tabs icon-menu-bar">
-                                <li class="active action-icons hm-active-action-icon">
-                                    <i class="icon-clock" data-toggle="tab" href="#match-timings"></i>
-                                </li>
-                                <li class="action-icons">
-                                    <i class="icon-bookmark" data-toggle="tab" href="#book-marks"></i>
-                                </li>
-                                <li class="action-icons">
-                                    <i class="icon-monitor" data-toggle="tab" href="#notifications"></i>
-                                </li>
-                                <li class="action-icons">
-                                    <i class="icon-users" data-toggle="tab" href="#friends"></i>
-                                </li>
-                                <li class="action-icons">
-                                    <i class="icon-chart-bar" data-toggle="tab" href="#trending"></i>
-                                </li>
-                            </ul>
                             <div class="tab-content" id="right-widget-scroller">
                                 <div id="match-timings" class="tab-pane fade in active">
                                     <%- seriesWidgetTemplate %>
-                                </div>
-                                <div id="book-marks" class="tab-pane fade">
-                                    <p>Bookmarks</p>
-                                </div>
-                                <div id="notifications" class="tab-pane fade">
-                                    <p>Notifications.</p>
-                                </div>
-                                <div id="friends" class="tab-pane fade in">
-                                    <p>Friends.</p>
-                                </div>
-                                <div id="trending" class="tab-pane fade in">
-                                    <%- trendingArticlesTemplate %>
                                 </div>
                             </div>
                         </div>

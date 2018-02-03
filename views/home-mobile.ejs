@@ -5,9 +5,8 @@
   <title>
     <%= title %>
   </title>
-  <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
-  <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <meta name='viewport' content='content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"' />
   <!-- <link href="css/main.css" rel="stylesheet"/> -->
   <style>
     <%- myCss %>
@@ -32,23 +31,6 @@
         <div class="wrapper-inner">
           <div class="outer-container">
             <div class="mobile-scorecard">
-              <div class="icon-menu-bar tab">
-                <div class="action-icons tablinks active" onclick="setTab.call(this, event, 'match-widget')">
-                  <i class="icon-clock">M</i>
-                </div>
-                <div class="action-icons tablinks">
-                  <i class="icon-bookmark"></i>
-                </div>
-                <div class="action-icons tablinks">
-                  <i class="icon-monitor"></i>
-                </div>
-                <div class="action-icons tablinks">
-                  <i class="icon-users"></i>
-                </div>
-                <div class="action-icons tablinks" onclick="setTab.call(this, event, 'trending-articles')">
-                  <i class="icon-chart-bar">T</i>
-                </div>
-              </div>
               <div class="mobile-score-widget">
                 <div class="matches-widget">
                   <div class="mobile-match-details">
@@ -57,12 +39,8 @@
                         <%- matchWidgetTemplate %>
                       </div>
                     </div>
-                    <div class="trending-articles-wrapper top-border-line tabcontent hide-default" id="trending-articles">
-                      <%- trendingArticlesTemplate %>
-                    </div>
                   </div>
                 </div>
-              </div>
             </div>
             <div class="homepage-content">
               <%- articlesTemplate %>

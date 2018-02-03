@@ -1,121 +1,138 @@
-<%if(topArticle.length > 0){ %>
-    <div class="no-margin-left no-padding">
-        <div id="headline-article no-padding-left blogs-hm-section-one">
-            <div class="wrapper margin-bottom-20 ">
-                <a class="main-article-trigger" href="/news/<%= topArticle[0].Id %>/<%= topArticle.Url %>">
-                    <div class="sixteen-by-nine">
-                        <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= topArticle[0].Id %>.jpg" width="100%" />
-                    </div>
-                </a>
-                <div class="content" style="top: auto;">
-                    <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
-                        <div style="position:absolute;bottom:10px; width:100%">
-                            <div class="blog-overlay-sub-title">
-                                <p class="inline">
-                                    <%= topArticle[0].HeadTitle %>
-                                </p>
-                                <p class="inline blog-duration-hm"></p>
-                            </div>
-                            <div class="blog-overlay-title blog-overlay-title-hm" style="height:auto; margin-left: 15px; line-height: 1.1;">
-                                <h2 class="inline">
-                                    <a class="article-title-link main-article-trigger" href="/news/<%= topArticle[0].Id %>/<%= topArticle[0].url %>">
-                                        <%= topArticle[0].Title %>
-                                    </a>
-                                </h2>
-                            </div>
-                            <div class="bl-overlay-match-details" id="article-headliner">
+<% if(articles.length > 0 && featureArticle.length > 0) { %>
+    <% if(featureArticle.length > 0 ) { %>
+        <% for (var i = 0; i < featureArticle.length; i++ ) { %>
+            <div style="display: inline-block;">
+                <div class="blogs-hm-section-two">
+                    <a href="/news/<%= featureArticle[i][0].id %>/<%= featureArticle[i][0].link %>">
+                        <div class="wrapper">
+                            <div class="four-by-five xs-sixteen-by-nine" style="background-image: url('http://d7d7wuk1a7yus.cloudfront.net/article-images/0.86/<%= featureArticle[i][0].id %>.jpg');
+                     padding-bottom: 116%; background-size: cover;">
 
+                            </div>
+                            <div class="content" style="top: auto;">
+                                <div class="blog-pic-overlay blog-pic-overlay-hm" style="position: relative; vertical-align: bottom;">
+                                    <div style="position: absolute; bottom: 10px; width: 100%">
+                                        <div class="blog-overlay-tag blog-overlay-tag-sm">
+                                            <%= featureArticle[i][0].heading %>
+                                        </div>
+                                        <div class="blog-overlay-title blog-overlay-title-sm" style="height: auto;">
+                                            <%= featureArticle[i][0].title %>
+                                        </div>
+                                        <div class="featured-article-desc-row">
+                                            <div class="author-details author-details-sm inline-block">
+                                                <img class="inline" width="30" height="30" src="https://d7d7wuk1a7yus.cloudfront.net/blogger-images/<%= featureArticle[i][0].bloggerImage %>.png"
+                                                />
+                                                <p class="inline">
+                                                    <%= featureArticle[i][0].bloggerName %>
+                                                </p>
+                                            </div>
+                                            <div class="blog-time-and-comments blog-time-and-comments-sm pull-right inline-block">
+                                                <div>
+                                                    <p class="inline">
+
+                                                    </p>
+                                                </div>
+                                                &nbsp;
+                                                <div>
+                                                    <i class="inline fa fa-comments-o"></i>
+                                                    <p class="inline">
+                                                        <%= featureArticle[i][0].comments %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <% }else{ %>
-        <div class="no-margin-left no-padding">
-            <div id="headline-article" class="col-md-12 no-padding-left blogs-hm-section-one">
-                <div class="login-container-right">
-                    <p>No News Coverage Yet</p>
-                </div>
-            </div>
-        </div>
-        <% } %>
 
-        <div class="no-margin-left no-padding col-sm-12 col-xs-12">
-            <% if(articles.length > 0){
-                for(var j = 0; j < articles.length; j++) {
-            var first = articles[j][0];
-            var second = articles[j][1];
+                <div class="no-margin-left no-padding col-sm-12 col-xs-12" style="padding-bottom: 15px !important;">
+                    <% 
+                    if(featureArticle.length <= articles.length){
+            var first = articles[i][0];
+            var second = articles[i][1];
             %>
-            <% if(first != undefined ) { %>
-                <div class="no-padding col-sm-6 col-xs-6">
-                    <a href="/news/<%= first.Id %>/<%= first.Url %>">
-                        <div class="news-sm-block" style="width: 100%;">
-                            <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
-                                <div class="wrapper" href="/news/<%= first.Id %>/<%= first.Url %>" style="height: 100px;">
-                                    <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= first.Id %>.jpg" width="100%" height="100%" />
-                                </div>
-                                <div class="news-sm-content-wrapper series-sm-content-wrapper">
-                                    <div class="news-main-title">
-                                        <div class="  main-news-link inline-block series-head-title-text">
-                                            <div class="Series-Col-Articles captial-text">
-                                                <%= first.HeadTitle %>
+                        <% if (first != undefined ) { %>
+                            <div class="no-padding col-sm-6 col-xs-6">
+                                <a href="/news/<%= first.Id %>/<%= first.Url %>">
+                                    <div class="news-sm-block" style="width: 100%;">
+                                        <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
+                                            <div class="wrapper" href="/news/<%= first.Id %>/<%= first.Url %>" style="height: 100px;">
+                                                <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= first.Id %>.jpg" width="100%" height="100%" />
+                                            </div>
+                                            <div class="news-sm-content-wrapper series-sm-content-wrapper">
+                                                <div class="news-main-title">
+                                                    <div class="  main-news-link inline-block series-head-title-text">
+                                                        <div class="Series-Col-Articles captial-text">
+                                                            <%= first.HeadTitle %>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="news-sub-title">
+                                                    <div class="Series-Col-Articles">
+                                                        <%=  first.Title %>
+                                                    </div>
+                                                </div>
+                                                <div class="news-copy-text">
+                                                    <p class="copy-text">
+                                                        <%= first.Excerpt %>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </a>
 
-                                    </div>
-                                    <div class="news-sub-title">
-                                        <div class="Series-Col-Articles">
-                                            <%=  first.Title %>
+                            </div>
+                            <% } if(second != undefined ) { %>
+
+                                <div class="no-padding col-sm-6 col-xs-6">
+                                    <a href="/news/<%= second.Id %>/<%= second.Url %>">
+                                        <div class="news-sm-block" style="width: 100%;">
+                                            <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
+                                                <div class="wrapper" href="/news/<%= second.Id %>/<%= second.Url %>" style="height: 100px;">
+                                                    <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= second.Id %>.jpg" width="100%" height="100%" />
+                                                </div>
+                                                <div class="news-sm-content-wrapper series-sm-content-wrapper">
+                                                    <div class="news-main-title">
+                                                        <div class="  main-news-link inline-block series-head-title-text">
+                                                            <div class="Series-Col-Articles captial-text">
+                                                                <%= second.HeadTitle %>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="news-sub-title">
+                                                        <div class="Series-Col-Articles">
+                                                            <%=  second.Title %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="news-copy-text">
+                                                        <p class="copy-text">
+                                                            <%=  second.Excerpt %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="news-copy-text">
-                                        <p class="copy-text">
-                                            <%= first.Excerpt %>
-                                        </p>
-                                    </div>
+                                    </a>
+                                </div>
+
+                                <% }
+                             } %>
+                </div>
+            </div>
+            <% } %>
+                <% } %>
+                    <% } else { %>
+                        <div class="no-margin-left no-padding">
+                            <div id="headline-article" class="col-md-12 no-padding-left blogs-hm-section-one">
+                                <div class="login-container-right">
+                                    <p>No News Coverage Yet</p>
                                 </div>
                             </div>
                         </div>
-                    </a>
-
-                </div>
-                <% } if(second != undefined ) { %>
-
-                <div class="no-padding col-sm-6 col-xs-6">
-                    <a href="/news/<%= second.Id %>/<%= second.Url %>">
-                        <div class="news-sm-block" style="width: 100%;">
-                            <div id="small-article-0-2" class="single-news-block single-news-block-responsive">
-                                <div class="wrapper" href="/news/<%= second.Id %>/<%= second.Url %>" style="height: 100px;">
-                                    <img src="https://www.cricingif.com/Images/ArticleImages/1.78/<%= second.Id %>.jpg" width="100%" height="100%" />
-                                </div>
-                                <div class="news-sm-content-wrapper series-sm-content-wrapper">
-                                    <div class="news-main-title">
-                                        <div class="  main-news-link inline-block series-head-title-text">
-                                            <div class="Series-Col-Articles captial-text">
-                                                <%= second.HeadTitle %>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="news-sub-title">
-                                        <div class="Series-Col-Articles">
-                                            <%=  second.Title %>
-                                        </div>
-                                    </div>
-                                    <div class="news-copy-text">
-                                        <p class="copy-text">
-                                            <%=  second.Excerpt %>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-            <% } 
-        }
-    }%>
-</div>
+                        <% } %>

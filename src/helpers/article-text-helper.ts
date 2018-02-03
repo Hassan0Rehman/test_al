@@ -19,7 +19,6 @@ function getNormalizedString(srcString: string) {
   if (aTagIndices.length > 0) {
     for (let i = 0; i < aTagIndices.length; i++) {
       const aTagEndIndex = srcString.indexOf("}}", aTagIndices[i]) + 2;
-      console.log(aTagEndIndex);
       const aToken = srcString.substring(aTagIndices[i], aTagEndIndex);
       const token = aToken.substring(6, aToken.length - 2);
       const args = token.split("++");

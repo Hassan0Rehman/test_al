@@ -6,9 +6,9 @@ class MatchPredictionApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            matchState: document.getElementsByClassName("match-prediction-data")[0].attributes["data-attr-ms"].value,
+            matchState: document.getElementById("match-content").dataset["attrMatchstate"],
             visible: "",
-            matchId: document.getElementsByClassName("match-prediction-data")[0].attributes["data-attr-id"].value,
+            matchId: document.getElementById("match-content").dataset["attrId"],
             matchPredictionResult: []
         }
     }
@@ -87,12 +87,12 @@ class MatchPredictionApp extends Component {
             return null;
         var team1Id, team1Title, team2Id, team2Title, matchId, team1Votes, team2Votes, getTemplate;
         const predictionResult = this.state.matchPredictionResult;
-        const obj = document.getElementsByClassName("match-prediction-data");
-        team1Id = obj[0].attributes['data-attr-team1Id'].value;
-        team1Title = obj[0].attributes['data-attr-team1title'].value;
-        team2Id = obj[0].attributes['data-attr-team2Id'].value;
-        team2Title = obj[0].attributes['data-attr-team2title'].value;
-        matchId = obj[0].attributes['data-attr-id'].value;
+        const obj = document.getElementById("match-content");
+        team1Id = obj.dataset['attrTeam1id'];
+        team1Title = obj.dataset['attrTeam1title'];
+        team2Id = obj.dataset['attrTeam2id'];
+        team2Title = obj.dataset['attrTeam2title'];
+        matchId = obj.dataset['attrId'];
 
 
         if (this.state.visible === "teams") {

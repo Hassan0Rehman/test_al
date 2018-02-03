@@ -584,7 +584,15 @@ html {
 
 .author-details {
     margin-left: 20px;
-    margin-top: 20px
+    margin-top: 20px;
+
+    .progressive {
+        width: 30px;
+        height: 30px;
+        background-size: cover !important;
+        background-position: center !important;
+        border-radius: 50%;
+    }
 }
 
 .author-details-sm {
@@ -592,12 +600,11 @@ html {
     margin-top: 20px;
     max-width: 150px;
     white-space: nowrap;
-    overflow: hidden
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-.author-details img {
-    border-radius: 50%
-}
 
 .author-details p {
     color: #fff;

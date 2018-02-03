@@ -49,18 +49,20 @@ function getTemplate(key: string) {
  */
 export let index = (req: Request & { useragent: any }, res: Response) => {
   console.log("START", new Date());
-    Promise.all([getTemplate("scheduleWidget"), getTemplate("homePage"),
-      getTemplate("trendingArticles"), getTemplate("playerRankings"), getTemplate("teamRankings")])
+    Promise.all([getTemplate("scheduleWidget"), getTemplate("homePage")
+    , getTemplate("playerRankings"), getTemplate("teamRankings")])
       .then(function(results) {
           const _userAgent = useragentMiddleware.default.getDevice();
           const _css = _userAgent === supportedDevices.index.desktop ? homeParser.getCss().style : homeParser.getMobileCss().style;
+          console.log("LOGGING USER AGENT : ", _userAgent);
+          console.log(_userAgent);
           // const _css = homeParser.getMobileCss().style;
           const obj =  {
             title: "Live cricket score, live streaming and ball by ball highlights| Cricingif",
             myCss: _css,
             matchWidgetTemplate: results[0],
             articlesTemplate: results[1],
-            trendingArticlesTemplate: results[2],
+            // trendingArticlesTemplate: results[2],
             playerRankingTemplate: results[3],
             teamRankingTemplate: results[4],
             jsChunk: serverPathHelper.default.getJsChunk()
@@ -71,11 +73,16 @@ export let index = (req: Request & { useragent: any }, res: Response) => {
             res.render("home-desktop.ejs", obj);
             console.log("END", new Date());
             return;
-          }
-          if (_userAgent === supportedDevices.index.mobile) {
+          } else if (_userAgent === supportedDevices.index.mobile) {
             // const renderedHtml = homeParser.getMobileHomePage(obj);
             // res.send(renderedHtml);
             res.render("home-mobile.ejs", obj);
+            console.log("END", new Date());
+            return;
+          } else {
+            // const renderedHtml = homeParser.getHomePage(obj);
+            // res.send(renderedHtml);
+            res.render("home-desktop.ejs", obj);
             console.log("END", new Date());
             return;
           }

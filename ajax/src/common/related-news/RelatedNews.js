@@ -17,13 +17,13 @@ class RelatedNewsApp extends Component {
 
     fetchData() {
         const self = this;
-        // const apis = ['https://cig-staging-api.azurewebsites.net/articles/match/' + this.props.id + '/related'];
-        const apis = ['https://cig-prod-api.azurewebsites.net/api/articles/match/3382/related'];        
+        const apis = ['https://cig-prod-api.azurewebsites.net/api/articles/match/' + this.props.id + '/related'];
+        // const apis = ['https://cig-prod-api.azurewebsites.net/api/articles/match/3382/related'];        
         const url = apis[0];
         let myHeaders = new Headers();
         myHeaders.append('Authorization', 'Token PkpKCM6xF0ugysR/MNPRAQ');
         myHeaders.append('content-type', 'application/json');
-    
+
         var myInit = { 
             method: 'GET',
             headers: myHeaders,

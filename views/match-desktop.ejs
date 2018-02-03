@@ -33,7 +33,14 @@
       data-attr-inningId="<%= scoreCard.inningsId %>"
       data-attr-allInnings="<%= allInnings %>"
       data-attr-matchState="<%= scoreCard.smallScorecard.ms %>"
-      data-attr-allowGif="<%= allowGif %>">
+      data-attr-allowGif="<%= allowGif %>"
+      data-attr-matchTime="<%= matchTime %>"
+      data-attr-matchLocation="<%= matchLocation %>"
+      data-attr-team1Id="<%= scoreCard.smallScorecard.t1i %>"
+      data-attr-team1title="<%= scoreCard.smallScorecard.t1t %>"
+      data-attr-team2Id="<%= scoreCard.smallScorecard.t2i %>"
+      data-attr-team2title="<%= scoreCard.smallScorecard.t2t %>"
+      data-attr-ms="<%= scoreCard.smallScorecard.ms %>">
 
       <div class="match-desk-row">
         <div class="match-desk-col first-col">
@@ -122,7 +129,7 @@
                   <div class="action-icons tablinks <%= scoreCard.smallScorecard.ms === 0 ? 'active' : '' %>" onclick="setTab.call(this, event, 'match-overview')">
                     <i class="tab-text">overview</i>
                   </div>
-                  <div class="action-icons tablinks" onclick="setTab.call(this, event, 'ball-by-ball')">
+                  <div class="action-icons tablinks <%= scoreCard.smallScorecard.ms === 1 ? 'active' : '' %>" onclick="setTab.call(this, event, 'ball-by-ball')">
                     <i class="tab-text">ball by ball</i>
                   </div>
                   <div class="action-icons tablinks" onclick="setTab.call(this, event, 'scorecard')">
@@ -141,18 +148,17 @@
                 <div class="match-report bg-white three-border" style="padding: 25px; text-align: center; margin-top: 0px;">
                   <div class="match-summary">
                     <% if (scoreCard.smallScorecard) { %>
-                      <%= scoreCard.smallScorecard.t1t + ' V ' + scoreCard.smallScorecard.t2t + ' - ' %>
-                        <%= scoreCard.smallScorecard.mh + '-' + scoreCard.smallScorecard.ml %>
-                          <br>
-                          <% if (scoreCard.smallScorecard.ms === 0) %>
-                            <%= scoreCard.smallScorecard.mr %>
-                              <% } %>
+                      <div class="match-details">
+                        <%= scoreCard.smallScorecard.t1t + ' V ' + scoreCard.smallScorecard.t2t + ' - ' %>
+                        <%= scoreCard.smallScorecard.mh + ' - ' + scoreCard.smallScorecard.ml %>
+                      </div>
+                      <br>
+                      <% if (scoreCard.smallScorecard.ms === 0) %>
+                        <div class="match-result"><%= scoreCard.smallScorecard.mr %></div>
+                    <% } %>
                   </div>
                 </div>
-                <div class="match-prediction-data" data-attr-team1Id="<%= scoreCard.smallScorecard.t1i %>" data-attr-team1title="<%= scoreCard.smallScorecard.t1t %>"
-                  data-attr-team2Id="<%= scoreCard.smallScorecard.t2i %>" data-attr-team2title="<%= scoreCard.smallScorecard.t2t %>"
-                  data-attr-id="<%= matchId %>" data-attr-ms="<%= scoreCard.smallScorecard.ms %>">
-                </div>
+                <div class="match-prediction-data"></div>
                 <div id="prediction-result"></div>
 
                 <%- matchOverviewTemplate %>
@@ -164,11 +170,24 @@
                 <p>Live blog.</p>
               </div>
             </div>
+            <div class="match-report bg-white three-border">
+                <div class="title">Related News</div>
+                <div id="related-news"></div>
+            </div>
           </div>
         </div>
 
         <div class="match-desk-col third-col">
-          <div id="worm-chart" style="position: relative; width: 100%; padding-left: 15px;"></div>
+          <div id="worm-chart" style="position: relative; width: 100%; padding-left: 15px; margin-bottom: 15px;"></div>
+          <div align="center" class="scorecard-ad-300x250 no-display-add">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Right Sidebar Rectangle -->
+            <ins class="adsbygoogle " style="display:inline-block; width:300px;height:250px" data-ad-client="ca-pub-3238745780396934"
+              data-ad-slot="4452001403"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
         </div>
       </div>
     </div>
@@ -218,8 +237,11 @@
 
       <!-- VIDEO.JS -->
       <link href="https://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
-    
+
       <script src="/webpack/matchPage.bundle.<%= jsChunk %>"></script>
+
+      <script rel="preload" as="script" src="/js/lib/jquery-3.1.1.min.js"></script>
+      <script rel="preload" as="script" src="/js/lib/bootstrap.min.js"></script>
       <script src="https://vjs.zencdn.net/6.2.8/video.js"></script>
       <script src="https://unpkg.com/videojs-playlist@4.2.0/dist/videojs-playlist.js"></script>
       <script type="text/javascript">

@@ -43,18 +43,19 @@ class LineupApp extends Component {
   }
 
   mapTeamSquads(allPlayers) {
-    const team1 = _.slice(allPlayers, 0, 16);
-    const team2 = _.slice(allPlayers, 16, allPlayers.length);
+    const teams = _.uniqBy(allPlayers, 'te');
+    const team1 = _.filter(allPlayers, {te: _.get(teams[0], 'te')});
+    const team2 = _.filter(allPlayers, {te: _.get(teams[1], 'te')});
     return [{
         playing: _.chunk(_.filter(team1, {ia: true}), 2), 
         notPlaying: _.chunk(_.filter(team1, {ia: false}), 4),
         captain: _.filter(team1, { ic: 1 }),
-        name: document.getElementsByClassName("match-prediction-data")[0].attributes['data-attr-team1title'].value
+        name: document.getElementById("match-content").dataset['attrTeam1title']
     }, {
         playing: _.chunk(_.filter(team2, {ia: true}), 2), 
         notPlaying: _.chunk(_.filter(team2, {ia: false}), 4),
         captain: _.filter(team2, { ic: 1 }),
-        name: document.getElementsByClassName("match-prediction-data")[0].attributes['data-attr-team2title'].value
+        name: document.getElementById("match-content").dataset['attrTeam2title']
     }];
   }
 

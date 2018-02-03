@@ -5,10 +5,10 @@
   <title>
     <%= title %>
   </title>
-  <meta name="google-site-verification" content="_R0-4-nBjFrLnBz-RP8cr52hKxRQZjmoCKjH5ftFJjk" />
-  <meta name="msvalidate.01" content="DE3543F977324B6B30BE093173D15E63" />
 
   <!-- <link href="css/main.css" rel="stylesheet"/> -->
+  <meta name='viewport' content='content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"' />
+
   <style>
     <%- myCss %>
   </style>
@@ -35,38 +35,9 @@
           </div>
           <div class="col-md-3 col-sm-4 hide-xs-screen no-padding right-outer-container" style="padding-left: 0px; padding-right: 10px;">
             <div class="scorecard-menu right-column-box hide-xs-screen">
-              <ul class="nav nav-tabs icon-menu-bar">
-                <li class="active action-icons hm-active-action-icon">
-                  <i class="icon-clock" data-toggle="tab" href="#match-timings"></i>
-                </li>
-                <li class="action-icons">
-                  <i class="icon-bookmark" data-toggle="tab" href="#book-marks"></i>
-                </li>
-                <li class="action-icons">
-                  <i class="icon-monitor" data-toggle="tab" href="#notifications"></i>
-                </li>
-                <li class="action-icons">
-                  <i class="icon-users" data-toggle="tab" href="#friends"></i>
-                </li>
-                <li class="action-icons">
-                  <i class="icon-chart-bar" data-toggle="tab" href="#trending"></i>
-                </li>
-              </ul>
               <div class="tab-content" id="right-widget-scroller">
                 <div id="match-timings" class="tab-pane fade in active">
                   <%- matchWidgetTemplate %>
-                </div>
-                <div id="book-marks" class="tab-pane fade">
-                  <p>Bookmarks</p>
-                </div>
-                <div id="notifications" class="tab-pane fade">
-                  <p>Notifications.</p>
-                </div>
-                <div id="friends" class="tab-pane fade in">
-                  <p>Friends.</p>
-                </div>
-                <div id="trending" class="tab-pane fade in">
-                  <%- trendingArticlesTemplate %>
                 </div>
               </div>
             </div>
@@ -102,9 +73,11 @@
       <!-- TODO:: ADD CROSS BROWSER SUPPORT FOR PRELOAD -->
 
       <!-- LOADING ESSENTIAL SCRIPTS FOR PAGE -->
+      <script rel="preload" as="script"src="/js/lib/lazyload-image.min.js"></script>      
+      <script src="webpack/homePage.bundle.<%= jsChunk %>"></script>
+      
       <script rel="preload" as="script" src="js/lib/jquery-3.1.1.min.js"></script>
       <script rel="preload" as="script" src="js/lib/bootstrap.min.js"></script>
-      <script src="webpack/homePage.bundle.<%= jsChunk %>"></script>
       <script type="text/javascript">
         /* <![CDATA[ */
         var google_conversion_id = 864160926;
@@ -112,8 +85,7 @@
         var google_remarketing_only = true;
             /* ]]> */
       </script>
-      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-      </script>
+      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
       <noscript>
         <div style="display: inline;">
           <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/864160926/?guid=ON&amp;script=0"

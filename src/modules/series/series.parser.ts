@@ -47,18 +47,23 @@ function htmlToString(partialName: string, response: any) {
         return { seriesWidgetTemplate: ejs.render(fs.readFileSync(_viewPath, "utf8"), { [partialName]: _data }), seriesHeadings: [{ test: test, oDI: oDI, t20: t20, t10: t10 }] };
     }
     else if (_keyName === "series-page-article") {
-        const topArticle = seriesMapper.default.map("seriesArticles", response.splice(0, 1));
-        _data = {
-            topArticle: topArticle,
-            articles: _.chunk(seriesMapper.default.map("seriesArticles", response), 2),
-            imageUrl: process.env.CIG_ENV === "production" ? imageUrls[1].url : imageUrls[0].url
-        };
-
         if (_userAgent === supportedDevices.index.desktop) {
+            const topArticle = seriesMapper.default.map("seriesArticles", response.splice(0, 1));
+            _data = {
+                topArticle: topArticle,
+                articles: _.chunk(seriesMapper.default.map("seriesArticles", response), 2),
+                imageUrl: process.env.CIG_ENV === "production" ? imageUrls[1].url : imageUrls[0].url
+            };
+
             const _viewPath = path.join(serverPathHelper.default.get().serverPath, serverPathHelper.default.get().viewsPath + "/partials/series/series-article.ejs");
             return ejs.render(fs.readFileSync(_viewPath, "utf8"), _data);
         }
         if (_userAgent === supportedDevices.index.mobile) {
+            _data = {
+                articles: _.chunk(seriesMapper.default.map("seriesArticles", response.ArticleList), 2),
+                featureArticle: _.chunk(seriesMapper.default.map("featuredArticles", response.BlogList), 1),
+                imageUrl: process.env.CIG_ENV === "production" ? imageUrls[1].url : imageUrls[0].url
+            };
             const _viewPath = path.join(serverPathHelper.default.get().serverPath, serverPathHelper.default.get().viewsPath + "/partials/series/series-mobile-article.ejs");
             return ejs.render(fs.readFileSync(_viewPath, "utf8"), _data);
         }

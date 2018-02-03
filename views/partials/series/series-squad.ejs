@@ -1,4 +1,5 @@
-<% for(var i = 0; i < seriesSquad.length; i++) { 
+<% for(var i = 0; i < seriesSquad.length; i++) {
+    if(seriesSquad[i].mt != null){
     var seriesType;
             if (seriesSquad[i].mt == 1) {
                 seriesType = "Test Squad";
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div class="series-squad-menu" id="series-squad-<%= seriesSquad[i].Id %>" attr-series-squad="<%= seriesSquad[i].Id %>">
-            
+
         </div>
     </div>
-    <% } %>
+    <%} } %>

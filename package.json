@@ -21,7 +21,7 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css && node-sass src/public/css/stories-desktop.scss dist/public/css/stories-desktop.css && node-sass src/public/css/stories-mobile.scss dist/public/css/stories-mobile.css && node-sass src/public/css/main-mobile.scss dist/public/css/main-mobile.css && node-sass src/public/css/app-downloads.scss dist/public/css/app-downloads.css && node-sass src/public/css/news-desktop.scss dist/public/css/news-desktop.css && node-sass src/public/css/news-mobile.scss dist/public/css/news-mobile.css && node-sass src/public/css/match-mobile.scss dist/public/css/match-mobile.css && node-sass src/public/css/match-desktop.scss dist/public/css/match-desktop.css && node-sass src/public/css/series-mobile.scss dist/public/css/series-mobile.css && node-sass src/public/css/series-desktop.scss dist/public/css/series-desktop.css",
-    "watch-sass": "node-sass -w src/public/css/match-desktop.scss dist/public/css/match-desktop.css",
+    "watch-sass": "node-sass -w src/public/css/match-mobile.scss dist/public/css/match-mobile.css",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "copy-static-assets": "node copyStaticAssets.js",
     "debug": "npm run build && npm run watch-debug",

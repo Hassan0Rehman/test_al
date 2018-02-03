@@ -9,4 +9,5 @@ shell.cp('-R', 'src/public/uploaded', 'dist/public/');
 shell.cp('-R', 'src/public/webpack', 'dist/public/');
 shell.cp('-R', 'src/public/BingSiteAuth.xml', 'dist/public/');
 shell.cp('-R', 'src/public/icon-spritesheet.png', 'dist/public/');
+shell.cp('-R', 'google963339dea71f7c3d.html', 'dist/public/');
 shell.cp('-R', 'views', 'dist/');

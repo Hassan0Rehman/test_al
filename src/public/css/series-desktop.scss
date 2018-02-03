@@ -1,6 +1,4 @@
 @import "lib/bootstrap/custom-bootstrap";
-@import "fontello-fonts/fontello";
-@import "fontello-fonts/fontello-codes";
 @import "icons-sprite-sheet";
 @import "themes/header/header-desktop";
 @import "themes/footer/footer";
@@ -28,6 +26,50 @@
     .row {
         margin-right: -15px;
         margin-left: -15px;
+    }
+
+    #loadMore{
+        padding-bottom: 30px;
+        padding-top: 5px;
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        a{
+            background: #333;
+            border-radius: 3px;
+            color: white;
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 30px;
+            transition: all 0.25s ease-out;
+            -webkit-font-smoothing: antialiased;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .no-squad-response{
+        padding-top: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #aaa;
+        text-align: center;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+    right-outer-container{
+        .right-column-box {
+            padding: unset;
+        }
+    }
+
+    #team-squad{
+        .right-column{
+            margin-top: 20px;
+        }
     }
 
     .padding-left-8{
@@ -96,10 +138,6 @@
             left: 0;
             right: 0;
 
-            .blog-pic-overlay-hm {
-                height: 160px;
-            }
-
             .blog-pic-overlay {
                 bottom: 0;
                 position: absolute;
@@ -120,16 +158,16 @@
                     text-transform: uppercase;
                 }
 
-                .blog-overlay-title-hm {
-                    margin-top: 10px;
-                    font-size: 1.7em;
-                    height: 70px;
+                // .blog-overlay-title-hm {
+                //     margin-top: 10px;
+                //     font-size: 1.7em;
+                //     height: 70px;
 
-                    h2 {
-                        font-size: 23.8px;
+                //     h2 {
+                //         font-size: 23.8px;
 
-                    }
-                }
+                //     }
+                // }
 
                 .blog-overlay-title {
                     color: #fff;
@@ -137,7 +175,6 @@
                     margin-top: 20px;
                     margin-left: 20px;
                     margin-right: 20px;
-                    height: 80px;
                     overflow: hidden;
                 }
 
@@ -254,9 +291,6 @@
     .blogs-hm-section-two {
         padding-bottom: 20px;
     }
-    .blog-pic-overlay-hm {
-        height: 160px;
-    }
 
     .blog-overlay-tag {
         background: #2c3a42;
@@ -301,102 +335,88 @@
             display: inline;
         }
     }
-    .inline-block {
-        display: inline-block;
-    }
-    right-outer-container{
-        .right-column-box {
-            padding: unset;
-        }
-    }
 
-    #team-squad{
-        .right-column{
-            margin-top: 20px;
-        }
-    }
+    .right-column {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,.08);
+        padding: 20px;
 
-        .right-column {
-            width: 100%;
+        .detail-text {
+            font-size: .9em!important;
+            font-family: "poppins-semibold"!important;
+
+            p {
+                color: #b5d91e;
+                text-transform: uppercase;
+                margin: 0 0 10px;
+            }
+            .no-margin-bottom {
+                margin-bottom: 0!important;
+            }
+        }
+
+        .copy-text {
+            font-size: 1em!important;
+            color: #666;
+
+            .no-margin-bottom {
+                margin-bottom: 0!important;
+            }
+            p {
+                margin: 0 0 10px;
+            }
+        }
+
+        .three-dots {
+            background: url(https://d7d7wuk1a7yus.cloudfront.net/static-assets/three_dots.png);
+            background-size: cover;
+            width: 18px;
+            height: 4px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            z-index: 1000;
+            float: left;
+            min-width: 160px;
+            padding: 0 0;
+            margin: 2px 0 0;
+            font-size: 14px;
+            text-align: left;
+            list-style: none;
             background-color: #fff;
-            border: 1px solid rgba(0,0,0,.08);
-            padding: 20px;
-    
-            .detail-text {
-                font-size: .9em!important;
-                font-family: "poppins-semibold"!important;
-    
-                p {
-                    color: #b5d91e;
-                    text-transform: uppercase;
-                    margin: 0 0 10px;
-                }
-                .no-margin-bottom {
-                    margin-bottom: 0!important;
-                }
-            }
-    
-            .copy-text {
-                font-size: 1em!important;
-                color: #666;
-    
-                .no-margin-bottom {
-                    margin-bottom: 0!important;
-                }
-                p {
-                    margin: 0 0 10px;
-                }
-            }
-    
-            .three-dots {
-                background: url(https://d7d7wuk1a7yus.cloudfront.net/static-assets/three_dots.png);
-                background-size: cover;
-                width: 18px;
-                height: 4px;
-                margin-top: 4px;
-                cursor: pointer;
-            }
-    
-            .dropdown-menu {
-                position: absolute;
-                top: 100%;
-                z-index: 1000;
-                float: left;
-                min-width: 160px;
-                padding: 0 0;
-                margin: 2px 0 0;
-                font-size: 14px;
-                text-align: left;
-                list-style: none;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ccc;
-                border: 1px solid rgba(0,0,0,.15);
-                right: 0;
-                left: inherit;
+            background-clip: padding-box;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,.15);
+            right: 0;
+            left: inherit;
 
-                li {
-                    border-bottom: 1px solid rgba(0,0,0,0.1);
+            li {
+                border-bottom: 1px solid rgba(0,0,0,0.1);
 
-                    a{
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                        display: block;
-                        padding: 3px 20px;
-                        
-                        color: #333;
-                        
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                    }
+                a{
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    display: block;
+                    padding: 3px 20px;
+                    
+                    color: #333;
+                    
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                 }
             }
-    
-            .teams-table {
-                width: 100%;
-            }
-    
         }
+
+        .teams-table {
+            width: 100%;
+        }
+
+    }
 
     
     .squad-row {
@@ -439,6 +459,7 @@
         .copy-text{
             font-size: 1em!important;
             color: #666;
+            padding-top: 10px;
         }
 
         .teams-table {

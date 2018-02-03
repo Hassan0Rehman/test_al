@@ -123,28 +123,37 @@ class ScoreCardApp extends Component {
                   <div className="team-1 team-scores">
                     {_sCard.sm.mt === 'Test' ? (
                       <div>
-                        <div className="latest-score">
-                          {_sCard.sm.t1i2s}
-                        </div>
-                        <div className="latest-overs">
-                          {_sCard.sm.t1i2o} overs
-                                </div>
-                        <div className="first-innings">
-                          {_sCard.sm.t1i1s + '(' + _sCard.sm.t1i1o + ')'}
-                        </div>
+                        {(_sCard.sm.t1i2s === '') ? (
+                          <div>
+                            <div className="latest-score">
+                              {_sCard.sm.t1i1s}
+                            </div>
+                            <div className="latest-overs" style={{textAlign: 'right'}}>
+                              {_sCard.sm.t1i1o + ' overs'}
+                            </div>
+                          </div>  
+                        ) : (
+                          <div>
+                            <div className="latest-score">
+                              {_sCard.sm.t1i2s}
+                            </div>
+                            <div className="latest-overs" style={{textAlign: 'right'}}>
+                              {_sCard.sm.t1i2o + ' overs'}
+                            </div>
+                            <div className="first-innings" style={{textAlign: 'right'}}>
+                              {_sCard.sm.t1i1s + '(' + _sCard.sm.t1i1o + ')'}
+                            </div>
+                          </div> 
+                        )}
                       </div>
                     ) : (
                         <div>
-                          <div className="latest-score" id="t1s">
+                          <div className="latest-score">
                             {_sCard.sm.t1i1s}
                           </div>
-                          <div className="latest-overs" id="t1o">
-                            {
-                              
-                              _sCard.sm.t1i1o
-                              
-                            } overs
-                                </div>
+                          <div className="latest-overs" style={{textAlign: 'right'}}>
+                            {_sCard.sm.t1i1o + ' overs'}
+                          </div>
                         </div>
                       )}
                   </div>
@@ -152,15 +161,28 @@ class ScoreCardApp extends Component {
                   <div className="team-2 team-scores">
                     {_sCard.sm.mt === 'Test' ? (
                       <div>
-                        <div className="latest-score">
-                          {_sCard.sm.t2i2s}
-                        </div>
-                        <div className="latest-overs">
-                          {_sCard.sm.t2i2o} overs
-                                </div>
-                        <div className="first-innings">
-                          {_sCard.sm.t2i1s + '(' + _sCard.sm.t2i1o + ')'}
-                        </div>
+                          {(_sCard.sm.t2i2s === '') ? (
+                            <div>
+                              <div className="latest-score">
+                                {_sCard.sm.t2i1s}
+                              </div>
+                              <div className="latest-overs">
+                                {_sCard.sm.t2i1o + ' overs'}
+                              </div>
+                            </div>  
+                          ) : (
+                            <div>
+                              <div className="latest-score">
+                                {_sCard.sm.t2i2s}
+                              </div>
+                              <div className="latest-overs">
+                                {_sCard.sm.t2i2o} overs
+                              </div>
+                              <div className="first-innings">
+                                {_sCard.sm.t2i1s + '(' + _sCard.sm.t2i1o + ')'}
+                              </div>
+                            </div> 
+                          )}
                       </div>
                     ) : (
                         <div>
@@ -168,8 +190,8 @@ class ScoreCardApp extends Component {
                             {_sCard.sm.t2i1s}
                           </div>
                           <div className="latest-overs" id="t2o">
-                            {_sCard.sm.t2i1o !== "" ? _sCard.sm.t2i1o + " overs" : ""}
-                                </div>
+                            {_sCard.sm.t2i1o} overs
+                              </div>
                         </div>
                       )}
                   </div>
@@ -241,36 +263,49 @@ class ScoreCardApp extends Component {
               <div className="teams">
                 <div className="team-1">
                   <div className={"sprite-" + _sCard.sm.t1t.replace(/\s+/g, '').toLowerCase()}></div>&nbsp;&nbsp;
-                          <div className="team-name">{_sCard.sm.t1n}</div>
+                  <div className="team-name">{_sCard.sm.t1n}</div>
                 </div>
                 <div className="vs-text">VS</div>
                 <div className="team-2">
                   <div className="team-name">{_sCard.sm.t2n}</div>&nbsp;&nbsp;
-                          <div className={"sprite-" + _sCard.sm.t2t.replace(/\s+/g, '').toLowerCase()}></div>
+                  <div className={"sprite-" + _sCard.sm.t2t.replace(/\s+/g, '').toLowerCase()}></div>
                 </div>
               </div>
               <div className="teams scoring">
                 <div className="team-1 team-scores">
                   {_sCard.sm.mt === 'Test' ? (
                     <div>
-                      <div className="latest-score">
-                        {_sCard.sm.t1i2s}
-                      </div>
-                      <div className="latest-overs">
-                        {_sCard.sm.t1i2o} overs
-                            </div>
-                      <div className="first-innings">
-                        {_sCard.sm.t1i1s + '(' + _sCard.sm.t1i1o + ')'}
-                      </div>
+                      {(_sCard.sm.t1i2s === '') ? (
+                        <div>
+                          <div className="latest-score">
+                            {_sCard.sm.t1i1s}
+                          </div>
+                          <div className="latest-overs" style={{textAlign: 'right'}}>
+                            {_sCard.sm.t1i1o + ' overs'}
+                          </div>
+                        </div>  
+                      ) : (
+                        <div>
+                          <div className="latest-score">
+                            {_sCard.sm.t1i2s}
+                          </div>
+                          <div className="latest-overs" style={{textAlign: 'right'}}>
+                            {_sCard.sm.t1i2o + ' overs'}
+                          </div>
+                          <div className="first-innings" style={{textAlign: 'right'}}>
+                            {_sCard.sm.t1i1s + '(' + _sCard.sm.t1i1o + ')'}
+                          </div>
+                        </div> 
+                      )}
                     </div>
                   ) : (
                       <div>
-                        <div className="latest-score" id="t1s">
+                        <div className="latest-score">
                           {_sCard.sm.t1i1s}
                         </div>
-                        <div className="latest-overs" id="t1o">
-                          {_sCard.sm.t1i1o} overs
-                            </div>
+                        <div className="latest-overs" style={{textAlign: 'right'}}>
+                          {_sCard.sm.t1i1o + ' overs'}
+                        </div>
                       </div>
                     )}
                 </div>
@@ -278,15 +313,28 @@ class ScoreCardApp extends Component {
                 <div className="team-2 team-scores">
                   {_sCard.sm.mt === 'Test' ? (
                     <div>
-                      <div className="latest-score">
-                        {_sCard.sm.t2i2s}
-                      </div>
-                      <div className="latest-overs">
-                        {_sCard.sm.t2i2o} overs
+                        {(_sCard.sm.t2i2s === '') ? (
+                          <div>
+                            <div className="latest-score">
+                              {_sCard.sm.t2i1s}
                             </div>
-                      <div className="first-innings">
-                        {_sCard.sm.t2i1s + '(' + _sCard.sm.t2i1o + ')'}
-                      </div>
+                            <div className="latest-overs">
+                              {_sCard.sm.t2i1o + ' overs'}
+                            </div>
+                          </div>  
+                        ) : (
+                          <div>
+                            <div className="latest-score">
+                              {_sCard.sm.t2i2s}
+                            </div>
+                            <div className="latest-overs">
+                              {_sCard.sm.t2i2o} overs
+                            </div>
+                            <div className="first-innings">
+                              {_sCard.sm.t2i1s + '(' + _sCard.sm.t2i1o + ')'}
+                            </div>
+                          </div> 
+                        )}
                     </div>
                   ) : (
                       <div>

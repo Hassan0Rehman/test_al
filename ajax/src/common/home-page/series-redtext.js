@@ -77,9 +77,9 @@ class FeatureArticle extends Component {
 
             template =
                 <a href={"/match/" + obj.mid}>
-                    <p class="inline"> Live </p>
-                    <p class="inline">{obj.t1n + " " + team1Score} </p>
-                    <p class="inline"> {obj.t2n + " " + team2Score} </p>
+                    <p className="inline"> Live </p>
+                    <p className="inline">{obj.t1n + " " + team1Score} </p>
+                    <p className="inline"> {obj.t2n + " " + team2Score} </p>
                 </a>
         }
         else if (obj.ms == 2) {

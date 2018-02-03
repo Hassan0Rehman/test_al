@@ -4,36 +4,43 @@
             <p class="inline" style="color: #a5c715;"><%= articles[0][0].matchTitle %></p>
         </a>
         <p class="inline pull-right" style="margin: 0px;">
-                <% var publishDate = new Date(articles[0][0].publishDate); %>
-                <% var date = new Date(); %>
-                <% var hours = Math.abs(date - publishDate) / 36e5; %>
-                <% if (hours <= 1) { %>
-                    <%= "just now" %>
-                <% } else if (hours > 1 && hours <= 23) { %>
-                    <%= Math.floor(hours) + "h" %>
-                <% } else if (hours > 23) { %>
-                    <%= "" %>
-                <% } %>
+            <% var publishDate = new Date(articles[0][0].publishDate); %>
+            <% var date = new Date(); %>
+            <% var hours = Math.abs(date - publishDate) / 36e5; %>
+            <% if (hours <= 1) { %>
+                <%= "just now" %>
+            <% } else if (hours > 1 && hours <= 23) { %>
+                <%= Math.floor(hours) + "h" %>
+            <% } else if (hours > 23) { %>
+                <%= "" %>
+            <% } %>
         </p>
     </h2>
     <div class="col-md-8 col-sm-8 col-xs-12 no-padding-left blogs-hm-section-one no-padding-right">
-        <div class="wrapper">
+        <div class="wrapper" style="background:url('/images/placeholder.png'); background-size: cover !important;
+            background-position: center !important;">
+            
             <a href="/news/<%= articles[0][0].id %>/<%= articles[0][0].link %>">
                 <div class="sixteen-by-nine" 
                     style="background:url('<%= imageUrl %>/1.78/<%= articles[0][0].id %>.jpg'), url('/images/placeholder.png');">
                 </div>
             </a>
             <div class="content" style="top: auto;">
-                <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
+                <div class="blog-pic-overlay blog-pic-overlay-hm" 
+                    style="position:relative;vertical-align:bottom;">
                     <div style="position:absolute;bottom:10px; width:100%">
                         <div class="blog-overlay-title blog-overlay-title-hm" style="height: auto;">
                             <h3 class="inline">
-                                <a class="article-title-link" href="/news/<%= articles[0][0].id %>/<%= articles[0][0].link %>">
+                                <a class="article-title-link" 
+                                    href="/news/<%= articles[0][0].id %>/<%= articles[0][0].link %>">
                                     <%= articles[0][0].seriesTitle %>
                                 </a>
                             </h3>
                         </div>
-                        <div class="bl-overlay-match-details"  id="article-headliner-<%= articles[0][0].matchId %>" series-attr-id="<%= articles[0][0].matchId %>" style="margin-left: 20px;">
+                        <div class="bl-overlay-match-details" 
+                            id="article-headliner-<%= articles[0][0].matchId %>"
+                            series-attr-id="<%= articles[0][0].matchId %>"
+                            style="margin-left: 20px;">
                         </div>
                     </div>
                 </div>
@@ -41,19 +48,25 @@
         </div>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12 blogs-hm-section-two no-padding-all">
-        <% for(var i = 1; i <= 2; i++) {%>
+        <% for(var i = 1; i <= 2; i++) { %>
             <div class="col-md-12 col-sm-12 col-xs-6 bl-sm-two no-margin-top">
-                <div class="wrapper">
+                <div class="wrapper"
+                    style="background:url('/images/placeholder.png');
+                    background-size: cover !important;
+                    background-position: center !important;">
+                    
                     <a href="/news/<%= articles[0][i].id %>/<%= articles[0][i].link %>">
                         <div class="sixteen-by-nine" style="background:url('<%= imageUrl %>/1.78/<%= articles[0][i].id %>.jpg'), url('/images/placeholder.png');"></div>
                     </a>
                     <div class="content" style="top:auto;">
-                        <div class="blog-pic-overlay blog-pic-overlay-hm-sm" style="position:relative;vertical-align:bottom;">
+                        <div class="blog-pic-overlay blog-pic-overlay-hm-sm" 
+                            style="position:relative;vertical-align:bottom;">
                             <div style="position:absolute;bottom:10px; width:100%">
-                                <div class="blog-overlay-title blog-overlay-title-hm-sm" style="height:auto;">
+                                <div class="blog-overlay-title blog-overlay-title-hm-sm"
+                                    style="height:auto;">
                                     <p class="inline">
                                         <a class="article-title-link" href="/news/<%= articles[0][i].id %>/<%= articles[0][i].link %>">
-                                        <%= articles[0][i].seriesTitle %>
+                                            <%= articles[0][i].seriesTitle %>
                                         </a>
                                     </p>
                                 </div>
@@ -68,165 +81,135 @@
 <div class="row row-edit col-lg-12 no-padding-left no-pad-right-767 padding-bottom-15" style="padding-right: 0px; width: 100%;">
     <div class="col-md-8 col-sm-8 col-xs-12 no-padding-left no-padding-right">
         <% for(var i = 1; i < articles.length; i++) { %>
-            <% if (i % 2 !== 0) {%>
-                <div class="hm-lt-row row no-margin-left">
-                    <div class="no-padding-left bl-hm-sec-one">
-                        <h2 class="top-article-header">
-                            <a style="color:#a5c715;" href="/series/<%= articles[i][0].matchId %>/<%= articles[i][0].matchTitle %>">
-                                <p class="inline"><%= articles[i][0].matchTitle %></p>
-                            </a>
-                            <p class="inline pull-right" style="margin: 0px;">
-                                    <% var publishDate = new Date(articles[i][0].publishDate); %>
-                                    <% console.log(publishDate) %>
-                                    <% var date = new Date(); %>
-                                    <% var hours = Math.abs(date - publishDate) / 36e5; %>
-                                    <% if (hours <= 1) { %>
-                                        <%= "just now" %>
-                                    <% } else if (hours > 1 && hours <= 23) { %>
-                                        <%= Math.floor(hours) + "h" %>
-                                    <% } else if (hours > 23) { %>
-                                        <%= "" %>
-                                    <% } %>
-                            </p>
-                        </h2>
-                        <div class="col-md-6 col-sm-6 col-xs-5 blogs-hm-section-two blogs-hm-section-two-inner no-padding-all">
-                            <div class="wrapper">
-                                <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
-                                    <div class="four-by-five"
-                                        style="background:url('<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg'), url('/images/placeholder.png');"></div>
-                                    <div class="content"></div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-7 bl-hm-sec-one-content bl-hm-sec-one-content-inverted no-padding-all no-margin-left">
-                            <div class="wrapper">
-                                <div class="four-by-five-content">
-                                </div>
-                                <div class="content hm-content-padding">
-                                    <h3 class="hm-inner-content-s2">
-                                        <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
-                                            <%= articles[i][0].seriesTitle %>
-                                        </a>
-                                    </h3>
-                                    <div class="hm-inner-content-s3">
-                                        <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
-                                            <p><%= articles[i][0].excerpt %></p>
-                                        </a>
-                                    </div>
-                                    <div class="hm-inner-content-s4 red-text bl-overlay-match-details" id="article-headliner-<%= articles[i][0].matchId %>" series-attr-id="<%= articles[i][0].matchId %>">
-                                    </div>
-                                    <div class="hm-inner-content-s5">
-                                        <a href="/match/<%= articles[i][1].matchId %>">
-                                            <div class="bl-inner-sm-img inline-block"
-                                                style="background:url('<%= imageUrl %>/1/<%= articles[i][1].id %>.jpg'), url('/images/placeholder.png');"></div>
-                                        </a>
-                                        <div class="inline-block">
-                                            <a href="/match/<%= articles[i][1].matchId %>">
-                                                <%= articles[i][1].seriesTitle %>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="hm-inner-content-s5 hide-nine-hundred">
-                                        <a href="/match/<%= articles[i][2].matchId %>">
-                                            <div class="bl-inner-sm-img inline-block"
-                                                style="background:url('<%= imageUrl %>/1/<%= articles[i][2].id %>.jpg'), url('/images/placeholder.png');"></div>
-                                        </a>
-                                        <div class="inline-block">
-                                            <a href="/match/<%= articles[i][2].matchId %>">
-                                                <%= articles[i][2].seriesTitle %>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <% if (i > 1 && (i % 2 !== 0)) { %>
+                <div align="center" class="no-display-add" style="padding-top:20px">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Responsive Leaderboard Ad -->
+                    <ins class="adsbygoogle" style="display: block; height: 60px;" 
+                        data-ad-client="ca-pub-3238745780396934" 
+                        data-ad-slot="9021801800" 
+                        data-ad-format="auto">
+                    </ins>
+                    <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
                 </div>
-            
-            <% } else { %>
-                <div class="hm-lt-row row no-margin-left">
-                    <div class="no-padding-left bl-hm-sec-one">
-                        <h2 class="top-article-header">
-                            <a style="color:#a5c715;" href="/series/<%= articles[i][0].matchId %>/<%= articles[i][0].matchTitle %>">
-                                <p class="inline"><%= articles[i][0].matchTitle %></p>
-                            </a>
-                            <p class="inline pull-right" style="margin: 0px;">
-                                    <% var publishDate = new Date(articles[i][0].publishDate); %>
-                                    <% var date = new Date(); %>
-                                    <% var hours = Math.abs(date - publishDate) / 36e5; %>
-                                    <% if (hours <= 1) { %>
-                                        <%= "just now" %>
-                                    <% } else if (hours > 1 && hours <= 23) { %>
-                                        <%= Math.floor(hours) + "h" %>
-                                    <% } else if (hours > 23) { %>
-                                        <%= "" %>
-                                    <% } %>
-                            </p>
-                        </h2>
-                        <div class="col-md-6 col-sm-6 col-xs-7 bl-hm-sec-one-content bl-hm-sec-one-content-inverted no-padding-all no-margin-left">
-                            <div class="wrapper">
-                                <div class="four-by-five-content"></div>
-                                <div class="content hm-content-padding">
-                                    <h3 class="hm-inner-content-s2">
-                                        <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
+            <% } %>
+            <div class="hm-lt-row row no-margin-left">
+                <div class="no-padding-left bl-hm-sec-one">
+                    <h2 class="top-article-header">
+                        <a style="color:#a5c715;" href="/series/<%= articles[i][0].matchId %>/<%= articles[i][0].matchTitle %>">
+                            <p class="inline"><%= articles[i][0].matchTitle %></p>
+                        </a>
+                        <p class="inline pull-right" style="margin: 0px;">
+                            <% var publishDate = new Date(articles[i][0].publishDate); %>
+                            <% var date = new Date(); %>
+                            <% var hours = Math.abs(date - publishDate) / 36e5; %>
+                            <% if (hours <= 1) { %>
+                                <%= "just now" %>
+                            <% } else if (hours > 1 && hours <= 23) { %>
+                                <%= Math.floor(hours) + "h" %>
+                            <% } else if (hours > 23) { %>
+                                <%= "" %>
+                            <% } %>
+                        </p>
+                    </h2>
+                    <% if (i % 2 !== 0) { %>
+                        <div class="col-md-6 col-sm-6 col-xs-5 blogs-hm-section-two blogs-hm-section-two-inner no-padding-all">
+                            <div class="wrapper" style="background:url('/images/placeholder.png'); background-size: cover !important;
+                            background-position: center !important;">
+                                <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
+                                    <div class="four-by-five progressive replace"
+                                        data-href="<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg">
+                                    </div>
+                                </a>
+                                <div class="content"></div>
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="col-md-6 col-sm-6 col-xs-7 bl-hm-sec-one-content bl-hm-sec-one-content-inverted no-padding-all no-margin-left">
+                        <div class="wrapper">
+                            <div class="four-by-five-content">
+                            </div>
+                            <div class="content hm-content-padding">
+                                <h3 class="hm-inner-content-s2">
+                                    <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
                                         <%= articles[i][0].seriesTitle %>
-                                        </a>
-                                    </h3>
-                                    <div class="hm-inner-content-s3">
-                                        <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
-                                            <p><%= articles[i][0].excerpt %></p>
-                                        </a>
-                                    </div>
-                                    <div class="hm-inner-content-s4 red-text bl-overlay-match-details"   id="article-headliner-<%= articles[i][0].matchId %>" series-attr-id="<%= articles[i][0].matchId %>">
-                                    </div>
-                                    <div class="hm-inner-content-s5">
-                                        <a href="/match/<%= articles[1].matchId %>">
-                                            <div class="bl-inner-sm-img inline-block"
-                                                style="background:url('<%= imageUrl %>/1/<%= articles[i][1].id %>.jpg'), url('/images/placeholder.png');"></div>
-                                        </a>
-                                        <div class="inline-block">
-                                            <a href="/match/<%= articles[i][1].matchId %>">
-                                                <%= articles[i][1].seriesTitle %>
-                                            </a>
+                                    </a>
+                                </h3>
+                                <div class="hm-inner-content-s3">
+                                    <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
+                                        <p><%= articles[i][0].excerpt %></p>
+                                    </a>
+                                </div>
+                                <div class="hm-inner-content-s4 red-text bl-overlay-match-details" id="article-headliner-<%= articles[i][0].matchId %>" series-attr-id="<%= articles[i][0].matchId %>">
+                                </div>
+                                <div class="hm-inner-content-s5">
+                                    <a href="/news/<%= articles[i][1].id %>/<%= articles[i][1].link %>">
+                                        <div style="background:url('/images/placeholder.png');
+                                            background-size: cover !important;
+                                            background-position: center !important;"
+                                            class="bl-inner-sm-img inline-block progressive replace"
+                                            data-href="<%= imageUrl %>/1/<%= articles[i][1].id %>.jpg">
                                         </div>
-                                    </div>
-                                    <div class="hm-inner-content-s5 hide-nine-hundred">
-                                        <a href="/match/<%= articles[i][2].matchId %>">
-                                            <div class="bl-inner-sm-img inline-block"
-                                                style="background:url('<%= imageUrl %>/1/<%= articles[i][2].id %>.jpg'), url('/images/placeholder.png');"></div>
+                                    </a>
+                                    <div class="inline-block">
+                                        <a href="/news/<%= articles[i][1].id %>/<%= articles[i][1].link %>">
+                                            <%= articles[i][1].seriesTitle %>
                                         </a>
-                                        <div class="inline-block">
-                                            <a href="/match/<%= articles[i][2].matchId %>">
-                                                <%= articles[i][2].seriesTitle %>
-                                            </a>
+                                    </div>
+                                </div>
+                                <div class="hm-inner-content-s5 hide-nine-hundred">
+                                    <a href="/news/<%= articles[i][2].id %>/<% articles[i][2].link %>">
+                                        <div style="background:url('/images/placeholder.png');
+                                            background-size: cover !important;
+                                            background-position: center !important;"
+                                            class="bl-inner-sm-img inline-block progressive replace"
+                                            data-href="<%= imageUrl %>/1/<%= articles[i][2].id %>.jpg">
                                         </div>
+                                    </a>
+                                    <div class="inline-block">
+                                        <a href="/news/<%= articles[i][2].id %>/<% articles[i][2].link %>">
+                                            <%= articles[i][2].seriesTitle %>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <% if (i % 2 === 0) { %>
                         <div class="col-md-6 col-sm-6 col-xs-5 blogs-hm-section-two blogs-hm-section-two-inner no-padding-all">
-                            <div class="wrapper">
+                            <div class="wrapper" 
+                                style="background:url('/images/placeholder.png');
+                                background-size: cover !important;
+                                background-position: center !important;">
+                                
                                 <a href="/news/<%= articles[i][0].id %>/<%= articles[i][0].link %>">
-                                    <div class="four-by-five" style="background:url('<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg'), url('/images/placeholder.png');"></div>
-                                    <div class="content"></div>
+                                    <div class="four-by-five progressive replace"
+                                        data-href="<%= imageUrl %>/0.86/<%= articles[i][0].id %>.jpg">
+                                    </div>
                                 </a>
+                                <div class="content"></div>
                             </div>
                         </div>
-                    </div>
+                    <% } %>
                 </div>
-            <% } %>  
+            </div>  
         <% } %>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12 no-padding-left no-padding-right margin-top-20">
         <h2 class="top-article-header no-margin-top padding-left-10" style="color:#a5c715 ;">
             Featured Articles
         </h2>
-        <% for(var i = 0; i < 3; i++) {%>
+        <% var featuredLimit = articles.length - 2 <= featuredArticles.length ? articles.length - 2 : 3; %>
+        <% for(var i = 0; i < featuredLimit; i++) { %>
             <div class="no-xs-padding blogs-hm-section-two">
                 <a href="/news/<%= featuredArticles[i].id %>/<%= featuredArticles[i].link %>">
-                    <div class="wrapper">
-                        <div class="four-by-five xs-sixteen-by-nine"
-                            style="background:url('<%= imageUrl %>/0.86/<%= featuredArticles[i].id %>.jpg'), url('/images/placeholder.png');"></div>
+                    <div class="wrapper" style="background:url('/images/placeholder.png');
+                        background-size: cover !important;
+                        background-position: center !important;">
+                        
+                        <div class="four-by-five progressive replace"
+                            data-href="<%= imageUrl %>/0.86/<%= featuredArticles[i].id %>.jpg">
+                        </div>
                         <div class="content" style="top:auto;">
                             <div class="blog-pic-overlay blog-pic-overlay-hm" style="position:relative;vertical-align:bottom;">
                                 <div style="position:absolute;bottom:10px; width:100%;">
@@ -234,7 +217,8 @@
                                     <div class="blog-overlay-title blog-overlay-title-sm" style="height:auto;"><%= featuredArticles[i].title %></div>
                                     <div class="featured-article-desc-row">
                                         <div class="author-details author-details-sm inline-block">
-                                            <img class="inline" width="30" height="30" src="https://d7d7wuk1a7yus.cloudfront.net/blogger-images/<%= featuredArticles[i].bloggerImage %>.png">
+                                            <div class="progressive replace" data-href="https://d7d7wuk1a7yus.cloudfront.net/blogger-images/<%= featuredArticles[i].bloggerImage %>.png">
+                                            </div>
                                             <p class="inline"><%= featuredArticles[i].bloggerName %></p>
                                         </div>
                                         <div class="blog-time-and-comments blog-time-and-comments-sm pull-right inline-block">

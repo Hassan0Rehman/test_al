@@ -71,13 +71,13 @@ class FullScoreCardApp extends Component {
                             </div>
                             <div className="team-row">
                                 <div className="team-row">
-                                    {i % 2 !== 0 && <img className="" id="sc-team-flag" 
+                                    {i % 2 === 0 && <img className="" id="sc-team-flag" 
                                         src={"https://d7d7wuk1a7yus.cloudfront.net/team-images/100x100/" + this.state.innings.t1.t.replace(/\s+/g, '').toLowerCase() + ".png"} 
                                         width="50"/>}
-                                    {i % 2 === 0 && <img className="" id="sc-team-flag" 
+                                    {i % 2 !== 0 && <img className="" id="sc-team-flag" 
                                         src={"https://d7d7wuk1a7yus.cloudfront.net/team-images/100x100/" + this.state.innings.t2.t.replace(/\s+/g, '').toLowerCase() + ".png"} 
                                         width="50"/>}
-                                    <div className="team-title">{ i % 2 !== 0 ? this.state.innings.t1.t : this.state.innings.t2.t }</div>    
+                                    <div className="team-title">{ i % 2 === 0 ? this.state.innings.t1.t : this.state.innings.t2.t }</div>    
                                 </div>
                                 <div>Run Rate { MatchCalculator.calculateRR(inning.ov, inning.ts)}</div>                                
                             </div>

@@ -47,6 +47,10 @@ if (idElem) {
     allInnings = idElem.dataset.attrAllinnings,
     matchState = idElem.dataset.attrMatchstate;
     
+    // TODO:: CHANGE THIS ONCE OVERVIEW API RETURN LOCATION AND TIME
+    document.getElementById("venue-name").innerHTML = idElem.dataset.attrMatchlocation;
+    document.getElementById("match-time").innerHTML = idElem.dataset.attrMatchtime;
+
     if (matchState === "1") {
         shortScoreCardService.setChannel(id);
     }
@@ -83,8 +87,7 @@ if (idElem) {
 
 if (window.innerWidth >= 767) {
     // Set series header dropdown
-    const scoreCardElem = document.getElementById('series-header-dropdown');
-    ReactDOM.render(<SeriesDropdown />, scoreCardElem);
+    ReactDOM.render(<SeriesDropdown />, document.getElementById('series-header-dropdown'));
 
     // Worm Chart component
     id && ReactDOM.render(<WormChart id={id} />, document.getElementById('worm-chart'));

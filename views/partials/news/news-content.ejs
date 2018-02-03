@@ -53,18 +53,19 @@
                 
             <% } else if (type === 'block-quote') {%>
                 <% var args = token.substring(14, token.length - 2).split('++'); %>
-                <blockquote cite="<%= args[1] %>"><%= args[0].trim() %></blockquote>
-                <div  align='center' style='margin-bottom: 10px;' >
-                <div class='tc-quiz-ques'>
-                    <p>
-                    <span style='color:#C6E545;font-size: 1.7em;'>
-                    </span>
-                    <%= args[0].trim() %>
-                    <span style='color:#C6E545;font-size: 1.7em;'>
-                    </span>
-                    <div class ='tc-sm-text'><%= args[1] %></div>
-                    </p>
-                </div>
+                <div align='center' style='margin-bottom: 10px;' >
+                    <div class='tc-quiz-ques'>
+                        <div>
+                            <span style='font-family: "poppins-semibold"'>
+                                <span style='color:#C6E545;font-size: 1.7em;'>"</span>
+                                    <%= args[0].trim() %>
+                                <span style='color:#C6E545;font-size: 1.7em;'>"</span>                            
+                            </span>
+                        </div>
+                        <div style='margin-top: 10px; font-size: .8em; color: #666;'>
+                            <%= args[1] %>
+                        </div>
+                    </div>
                 </div>
             <% } else if (type === 'pull-quote') {%>
                 <% var args = token.substring(13, token.length - 2).trim(); %>
@@ -89,13 +90,16 @@
                 </div>
             <% } else if (type === 'video') {%>
                     <% if(userRegion === 'PK') { %>
-                        <% var args = token.substring(7, token.length - 2); %>
+                        <% var args = token.substring(7, token.length - 2).split('++'); %>
                         <div align="center" class="article-video">
-                            <video controls="true">
-                                <source src="<%= args.trim() %>" type="video/mp4">
-                                        
-                                </source>
+                            <video controls="true" controlslist="nodownload" preload="auto">
+                                <source src="<%= args[0].trim() %>" type="video/mp4"></source>
                             </video>
+                            <p style="font-size: 12px; line-height: 1.875;">
+                                <% if (args[1]) { %> 
+                                    <%= args[1].trim(); %>
+                                <% } %>
+                            </p>
                         </div>
                     <% } %>
             <% } else if(type === 'blockQoute') {%>

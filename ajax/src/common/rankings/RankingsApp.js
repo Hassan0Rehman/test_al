@@ -39,10 +39,11 @@ class RankingsApp extends Component {
         response.json().then(function(ranked) {
           const arr = ranked;
           const selected = _.get(_.find(self.props.options, {value: index}), 'name');
-          if (self.isTeamRanking)
+          if (_.get(self, 'isTeamRanking') && document.getElementById('team-rankings-server'))
             document.getElementById('team-rankings-server').style.display = "none";
-          else
+          else if (_.get(self, 'isTeamRanking') && document.getElementById('player-rankings-server')) {
             document.getElementById('player-rankings-server').style.display = "none";
+          }
           
           self.setState({
             filterName: self.isTeamRanking ? selected+" Teams" : selected,

@@ -43,7 +43,7 @@
                           <% if (match.team1Inns2Score !== "") { %>
                             <div class="score-and-overs-container">
                               <div class="score-and-overs">
-                                <%= match.team1Inns2Score + ' (' + match.team2Inns2Overs + ')' %>
+                                <%= match.team1Inns2Score  + ' ' +  match.team2Inns2Overs  %>
                               </div>
                               <% if (category.val === 1 && match.BattingTeam === 1) { %> 
                                   <div class="currently-playing-arrow"></div>
@@ -53,7 +53,7 @@
                           <% if (match.team1Inns1Score !== "") { %>
                             <div class="score-and-overs-container">
                               <div class="score-and-overs">
-                                <%= match.team1Inns1Score + ' (' + match.team1Inns1Overs + ')' %>
+                                <%= match.team1Inns1Score + ' ' +  match.team1Inns1Overs  %>
                               </div>
                               <% if (category.val === 1 && match.BattingTeam === 1 && match.team1Inns2Score === "") { %> 
                                 <div class="currently-playing-arrow"></div>
@@ -84,7 +84,7 @@
                           <% if (match.team2Inns2Score !== "") { %>
                             <div class="score-and-overs-container">
                               <div class="score-and-overs">
-                                <%= match.team2Inns2Score + ' (' + match.team2Inns2Overs + ')' %>
+                                <%= match.team2Inns2Score + ' ' + match.team2Inns2Overs  %>
                               </div>
                               <% if (category.val === 1 && match.BattingTeam === 2) { %> 
                                 <div class="currently-playing-arrow"></div>
@@ -94,7 +94,7 @@
                           <% if (match.team2Inns1Score !== "") { %>
                             <div class="score-and-overs-container">
                               <div class="score-and-overs">
-                                <%= match.team2Inns1Score + ' (' + match.team2Inns1Overs + ')' %>
+                                <%= match.team2Inns1Score + ' ' + match.team2Inns1Overs  %>
                               </div>
                               <% if (category.val === 1 && match.BattingTeam === 2 && match.team2Inns2Score === "") { %> 
                                 <div class="currently-playing-arrow"></div>

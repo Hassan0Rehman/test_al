@@ -9,7 +9,8 @@ class SeriesSquad extends Component {
         const self = this;
         this.state = {
             seriesId: this.props.seriesId,
-            teams: []
+            teams: [],
+            series: ""
         };
     }
 
@@ -36,7 +37,13 @@ class SeriesSquad extends Component {
             if (response.status === 200) {
                 response.json().then(function (response) {
                     TeamsResult = response;
-                    self.fetchTeams(response[0].Id);
+                    if (response.length > 0 && response[0].Id) {
+                        self.fetchTeams(response[0].Id);
+                    } else {
+                        self.setState({
+                            series: "noUpdate"
+                        })
+                    }
                 });
             }
         })
@@ -60,7 +67,7 @@ class SeriesSquad extends Component {
         fetch(url, myInit).then(function (response) {
             if (response.status === 200) {
                 response.json().then(function (response) {
-                    TeamName = _.get(_.find(TeamsResult, {Id: teamId}), 't');
+                    TeamName = _.get(_.find(TeamsResult, { Id: teamId }), 't');
                     self.setState({
                         teams: response
                     });
@@ -70,16 +77,26 @@ class SeriesSquad extends Component {
     }
 
     render() {
-        if (this.state.teams.length == 0 && (TeamsResult ==  undefined || TeamsResult.length == 0))
+        let template = null;
+        if(this.state.series === "noUpdate"){
+            template = <div className="Squad-text"><h4>Ye to be announced</h4></div>
+            return (
+                <div>
+                    <div className="teams-squad">
+                        {template}
+                    </div>
+                </div>
+            )
+        }
+        if (this.state.teams.length == 0 && (TeamsResult == undefined || TeamsResult.length == 0))
             return null;
-        let template = null;    
         if (this.state.teams.length > 0) {
             template = this.state.teams.map((team, i) => {
                 return (
                     <div className="squad-row" key={i + 1}>
                         <div className="squad-order">{i + 1}</div>
                         <div className="squad-pic">
-                            {<LazyLoad height={35}><img className="rounded" height="35" width="35" src={"https://d7d7wuk1a7yus.cloudfront.net/player-images/" + team.Id + ".png"} /></LazyLoad>}
+                            {<LazyLoad height={35}><img className="rounded" height="35" width="35" src={"https://d7d7wuk1a7yus.cloudfront.net/player-images/" + team.Id + ".png"} onError={(e)=>{e.target.src="https://d7d7wuk1a7yus.cloudfront.net/user-images/0.png"}} /></LazyLoad>}
                         </div>
                         <div>
                             <div className="squad-name">{team.n}</div>
@@ -92,7 +109,7 @@ class SeriesSquad extends Component {
             template = <div className="Squad-text"><h4>Ye to be announced</h4></div>
         }
         return (
-            <div>   
+            <div>
                 <div className="inline-block pull-right">
                     <div className="dropdown">
                         <div className="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
@@ -113,7 +130,7 @@ class SeriesSquad extends Component {
                     <p className="no-margin-bottom team-test-title">{TeamName}</p>
                 </div>
                 <div className="teams-squad">
-                    { template }
+                    {template}
                 </div>
             </div>
         )
